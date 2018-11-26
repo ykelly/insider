@@ -22,7 +22,7 @@ class App extends Component {
     this.state = { viewport: {
             latitude: 47.6053202,
             longitude: -122.3381718,
-            zoom: 11,
+            zoom: 12,
             bearing: 0,
             pitch: 0,
             width: 950,
@@ -96,7 +96,7 @@ class App extends Component {
                   <div className="column is-6" id="column-three">
                       <MapGL
                           {...viewport}
-                          mapStyle="mapbox://styles/mapbox/dark-v9"
+                          mapStyle="mapbox://styles/mapbox/streets-v9"
                           mapboxApiAccessToken={TOKEN}>
                           <div className="nav" style={navStyle} id="map">
                               <NavigationControl/>
