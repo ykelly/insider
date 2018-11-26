@@ -57,12 +57,11 @@ nav {
 /*background-image: url("./src/sky.jpg");*/
 /*}*/
 
-.contactus {
-  color: #35CC62;
-}
 
 #column-one {
-  /*background-image: ;*/
+  background: url("images/filter.png") center;
+  background-size: cover;
+  border-right: rgba(128, 128, 128, 0.22) 1px solid;
 }
 
 #column-two {
@@ -74,10 +73,12 @@ nav {
 #column-three {
   background: url("images/map.png") center;
   background-size: cover;
+
 }
 
 #columns {
   height: 98vh;
+  position: relative;
 }
 
 .fa-facebook {
@@ -94,4 +95,8 @@ nav {
 
 .icons {
   padding-left: 20px;
+}
+
+.navbar-item {
+  font-size: 15px;
 }

@@ -34,7 +34,7 @@ class App extends Component {
       return (
           <div>
               <div>
-                  <nav className="navbar is-fixed-top has-shadow">
+                  <nav className="navbar is-light is-fixed-top has-shadow">
                       <div className="navbar-brand">
                           <a className="navbar-item">
                               <strong>Airbnb Insider</strong>
@@ -54,19 +54,14 @@ class App extends Component {
                               <div className="navbar-item">
                                   <div className="field is-grouped">
                                       <a className="navbar-item">
-                                          HOME
+                                          Home
                                       </a>
                                       <a className="navbar-item">
-                                          SEARCH
+                                          Search
                                       </a>
                                       <a className="navbar-item">
-                                          ABOUT
+                                          About
                                       </a>
-                                      <p className="control">
-                                          <a className="button" id="contactus">
-                                              <span>CONTACT US</span>
-                                          </a>
-                                      </p>
                                   </div>
                               </div>
                           </div>
