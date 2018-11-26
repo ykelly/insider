@@ -20,13 +20,13 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = { viewport: {
-            latitude: 37.785164,
-            longitude: -100,
-            zoom: 2.8,
+            latitude: 47.6053202,
+            longitude: -122.3381718,
+            zoom: 11,
             bearing: 0,
             pitch: 0,
-            width: 500,
-            height: 500,
+            width: 950,
+            height: 1100,
         },
         messages: [] }; // <- set up react state
   }
@@ -98,7 +98,7 @@ class App extends Component {
                           {...viewport}
                           mapStyle="mapbox://styles/mapbox/dark-v9"
                           mapboxApiAccessToken={TOKEN}>
-                          <div className="nav" style={navStyle}>
+                          <div className="nav" style={navStyle} id="map">
                               <NavigationControl/>
                           </div>
                       </MapGL>

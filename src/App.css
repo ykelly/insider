@@ -100,3 +100,8 @@ nav {
 .navbar-item {
   font-size: 15px;
 }
+
+#map {
+  margin-top: 80px;
+  margin-left: 20px;
+}
