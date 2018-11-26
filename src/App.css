@@ -70,11 +70,11 @@ nav {
 
 }
 
-#column-three {
-  background: url("images/map.png") center;
-  background-size: cover;
+/*#column-three {*/
+  /*background: url("images/map.png") center;*/
+  /*background-size: cover;*/
 
-}
+/*}*/
 
 #columns {
   height: 98vh;

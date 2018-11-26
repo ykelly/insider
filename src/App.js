@@ -5,15 +5,33 @@ import { Navbar } from "react-bulma-components/full";
 import { Icon } from "react-bulma-components/full";
 import { Button } from "react-bulma-components/full";
 import 'font-awesome/css/font-awesome.min.css';
+import MapGL, {NavigationControl} from 'react-map-gl';
 
+const TOKEN = 'pk.eyJ1IjoiZGFuZGxpbSIsImEiOiJjam95bDA0MmYyNGQzM3JvOWszcW9qNHJyIn0.NKgt5l1DvKMzyCHEKr9NZQ'
 
-
+const navStyle = {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    padding: '10px'
+};
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { messages: [] }; // <- set up react state
+    this.state = { viewport: {
+            latitude: 37.785164,
+            longitude: -100,
+            zoom: 2.8,
+            bearing: 0,
+            pitch: 0,
+            width: 500,
+            height: 500,
+        },
+        messages: [] }; // <- set up react state
   }
+
+
   componentWillMount(){
     /* Create reference to messages in Firebase Database */
     let messagesRef = fire.database().ref('messages').orderByKey().limitToLast(100);
@@ -31,6 +49,7 @@ class App extends Component {
   }
 
   render() {
+      const {viewport} = this.state;
       return (
           <div>
               <div>
@@ -45,11 +64,9 @@ class App extends Component {
                               <span></span>
                           </div>
                       </div>
-
                       <div className="navbar-menu is-right">
                           <div className="navbar-start">
                           </div>
-
                           <div className="navbar-end">
                               <div className="navbar-item">
                                   <div className="field is-grouped">
@@ -77,7 +94,14 @@ class App extends Component {
                       Second column
                   </div>
                   <div className="column is-6" id="column-three">
-                      Third column
+                      <MapGL
+                          {...viewport}
+                          mapStyle="mapbox://styles/mapbox/dark-v9"
+                          mapboxApiAccessToken={TOKEN}>
+                          <div className="nav" style={navStyle}>
+                              <NavigationControl/>
+                          </div>
+                      </MapGL>
                   </div>
               </div>
 
@@ -93,7 +117,6 @@ class App extends Component {
                               <span></span>
                           </div>
                       </div>
-
                       <div className="navbar-menu is-right">
                           <div className="navbar-start">
                           </div>
