@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import fire from "./fire"
-import logo from './logo.svg';
 import './App.css';
+import { Navbar } from "react-bulma-components/full";
+import { Icon } from "react-bulma-components/full";
+import { Button } from "react-bulma-components/full";
+import 'font-awesome/css/font-awesome.min.css';
+
+
+
 
 class App extends Component {
   constructor(props) {
@@ -17,25 +23,126 @@ class App extends Component {
       this.setState({ messages: [message].concat(this.state.messages) });
     })
   }
-  addMessage(e){
-    e.preventDefault(); // <- prevent form submit from reloading the page
-    /* Send the message to Firebase */
-    fire.database().ref('messages').push( this.inputEl.value );
-    this.inputEl.value = ''; // <- clear the input
+  addMessage(e) {
+      e.preventDefault(); // <- prevent form submit from reloading the page
+      /* Send the message to Firebase */
+      fire.database().ref('messages').push(this.inputEl.value);
+      this.inputEl.value = ''; // <- clear the input
   }
+
   render() {
-    return (
-      <form onSubmit={this.addMessage.bind(this)}>
-        <input type="text" ref={ el => this.inputEl = el }/>
-        <input type="submit"/>
-        <ul>
-          { /* Render the list of messages */
-            this.state.messages.map( message => <li key={message.id}>{message.text}</li> )
-          }
-        </ul>
-      </form>
-    );
+      return (
+          <div>
+              <div>
+                  <nav className="navbar is-fixed-top has-shadow">
+                      <div className="navbar-brand">
+                          <a className="navbar-item">
+                              <strong>Airbnb Insider</strong>
+                          </a>
+                          <div className="navbar-burger burger" data-target="navbarExampleTransparentExample">
+                              <span></span>
+                              <span></span>
+                              <span></span>
+                          </div>
+                      </div>
+
+                      <div className="navbar-menu is-right">
+                          <div className="navbar-start">
+                          </div>
+
+                          <div className="navbar-end">
+                              <div className="navbar-item">
+                                  <div className="field is-grouped">
+                                      <a className="navbar-item">
+                                          HOME
+                                      </a>
+                                      <a className="navbar-item">
+                                          SEARCH
+                                      </a>
+                                      <a className="navbar-item">
+                                          ABOUT
+                                      </a>
+                                      <p className="control">
+                                          <a className="button" id="contactus">
+                                              <span>CONTACT US</span>
+                                          </a>
+                                      </p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </nav>
+              </div>
+
+              <div className="columns" id="columns">
+                  <div className="column is-one-fifth" id="column-one">
+                      First column
+                  </div>
+                  <div className="column" id="column-two">
+                      Second column
+                  </div>
+                  <div className="column is-one-fourth" id="column-three">
+                      Third column
+                  </div>
+              </div>
+
+              <div>
+                  <nav className="navbar is-transparent is-dark is-fixed-bottom has-shadow">
+                      <div className="navbar-brand">
+                          <a className="navbar-item">
+                              <strong>Airbnb Insider</strong>
+                          </a>
+                          <div className="navbar-burger burger" data-target="navbarExampleTransparentExample">
+                              <span></span>
+                              <span></span>
+                              <span></span>
+                          </div>
+                      </div>
+
+                      <div className="navbar-menu is-right">
+                          <div className="navbar-start">
+                          </div>
+
+                          <div className="navbar-end">
+                              <div className="navbar-item">
+                                  <div className="field is-grouped">
+                                      <div className="control">
+                                          <a className="icons">
+                                              <i className="fa fa-facebook"></i>
+                                          </a>
+                                          <a className="icons">
+                                              <i className="fa fa-instagram"></i>
+                                          </a>
+                                          <a className="icons">
+                                              <i className="fa fa-twitter"></i>
+                                          </a>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </nav>
+              </div>
+          </div>
+      )
   }
+
+  //Rock's firebase work
+  // render() {
+  //   return (
+  //     <form onSubmit={this.addMessage.bind(this)}>
+  //       <input type="text" ref={ el => this.inputEl = el }/>
+  //       <input type="submit"/>
+  //       <ul>
+  //         { /* Render the list of messages */
+  //           this.state.messages.map( message => <li key={message.id}>{message.text}</li> )
+  //         }
+  //       </ul>
+  //     </form>
+  //   );
+  // }
+
+
   // render() {
   //   return (
   //     <div className="App">
