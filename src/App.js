@@ -70,13 +70,13 @@ class App extends Component {
               </div>
 
               <div className="columns" id="columns">
-                  <div className="column is-one-fifth" id="column-one">
+                  <div className="column is-2" id="column-one">
                       First column
                   </div>
-                  <div className="column" id="column-two">
+                  <div className="column is-4" id="column-two">
                       Second column
                   </div>
-                  <div className="column is-one-fourth" id="column-three">
+                  <div className="column is-6" id="column-three">
                       Third column
                   </div>
               </div>
