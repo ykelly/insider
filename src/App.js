@@ -5,32 +5,44 @@ import { Navbar } from "react-bulma-components/full";
 import { Icon } from "react-bulma-components/full";
 import { Button } from "react-bulma-components/full";
 import 'font-awesome/css/font-awesome.min.css';
-import MapGL, {NavigationControl} from 'react-map-gl';
+import ReactDOM from 'react-dom'
+import mapboxgl from 'mapbox-gl'
 
-const TOKEN = 'pk.eyJ1IjoiZGFuZGxpbSIsImEiOiJjam95bDA0MmYyNGQzM3JvOWszcW9qNHJyIn0.NKgt5l1DvKMzyCHEKr9NZQ'
+mapboxgl.accessToken = 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4M29iazA2Z2gycXA4N2pmbDZmangifQ.-g_vE53SD2WrJ6tFX7QHmA';
 
-const navStyle = {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    padding: '10px'
-};
 
 class App extends Component {
-  constructor(props) {
+  constructor(props: Props) {
     super(props);
-    this.state = { viewport: {
-            latitude: 47.6053202,
-            longitude: -122.3381718,
-            zoom: 12,
-            bearing: 0,
-            pitch: 0,
-            width: 950,
-            height: 1100,
-        },
+    this.state = {
+        lat: 47.6053202,
+        lng: -122.3381718,
+        zoom: 12,
+        width: 950,
+        height: 1100,
         messages: [] }; // <- set up react state
   }
 
+    componentDidMount() {
+        const { lng, lat, zoom } = this.state;
+
+        const map = new mapboxgl.Map({
+            container: this.mapContainer,
+            style: 'mapbox://styles/mapbox/streets-v9',
+            center: [lng, lat],
+            zoom,
+        });
+
+        map.on('move', () => {
+            const { lng, lat } = map.getCenter();
+
+            this.setState({
+                lng: lng.toFixed(4),
+                lat: lat.toFixed(4),
+                zoom: map.getZoom().toFixed(2)
+            });
+        });
+    }
 
   componentWillMount(){
     /* Create reference to messages in Firebase Database */
@@ -49,7 +61,7 @@ class App extends Component {
   }
 
   render() {
-      const {viewport} = this.state;
+      const { lng, lat, zoom} = this.state;
       return (
           <div>
               <div>
@@ -88,20 +100,16 @@ class App extends Component {
 
               <div className="columns" id="columns">
                   <div className="column is-2" id="column-one">
-                      First column
+                      {/*First column*/}
                   </div>
                   <div className="column is-4" id="column-two">
-                      Second column
+                      {/*Second column*/}
                   </div>
-                  <div className="column is-6" id="column-three">
-                      <MapGL
-                          {...viewport}
-                          mapStyle="mapbox://styles/mapbox/streets-v9"
-                          mapboxApiAccessToken={TOKEN}>
-                          <div className="nav" style={navStyle} id="map">
-                              <NavigationControl/>
-                          </div>
-                      </MapGL>
+                  <div className="column is-6 noSelect" id="column-three">
+                      {/*Third column*/}
+                      <div>
+                          <div ref={el => this.mapContainer = el} id="map"/>
+                      </div>
                   </div>
               </div>
 

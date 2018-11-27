@@ -102,6 +102,11 @@ nav {
 }
 
 #map {
-  margin-top: 80px;
-  margin-left: 20px;
+  width: 950px;
+  height: 1100px;
 }
+
+:focus {
+  outline: none !important;
+}
+
