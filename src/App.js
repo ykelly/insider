@@ -1,48 +1,28 @@
 import React, { Component } from 'react';
 import fire from "./fire"
 import './App.css';
-import { Navbar } from "react-bulma-components/full";
-import { Icon } from "react-bulma-components/full";
-import { Button } from "react-bulma-components/full";
+import "react-bulma-components/full";
 import 'font-awesome/css/font-awesome.min.css';
-import ReactDOM from 'react-dom'
-import mapboxgl from 'mapbox-gl'
+import ReactMapGL from 'react-map-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
-mapboxgl.accessToken = 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4M29iazA2Z2gycXA4N2pmbDZmangifQ.-g_vE53SD2WrJ6tFX7QHmA';
-
+const TOKEN = "pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4M29iazA2Z2gycXA4N2pmbDZmangifQ.-g_vE53SD2WrJ6tFX7QHmA"
 
 class App extends Component {
+
   constructor(props: Props) {
     super(props);
+
     this.state = {
-        lat: 47.6053202,
-        lng: -122.3381718,
-        zoom: 12,
-        width: 950,
-        height: 1100,
+        viewport: {
+            latitude: 47.6053202,
+            longitude: -122.3381718,
+            zoom: 12,
+            width: 950,
+            height: 1200,
+        },
         messages: [] }; // <- set up react state
   }
-
-    componentDidMount() {
-        const { lng, lat, zoom } = this.state;
-
-        const map = new mapboxgl.Map({
-            container: this.mapContainer,
-            style: 'mapbox://styles/mapbox/streets-v9',
-            center: [lng, lat],
-            zoom,
-        });
-
-        map.on('move', () => {
-            const { lng, lat } = map.getCenter();
-
-            this.setState({
-                lng: lng.toFixed(4),
-                lat: lat.toFixed(4),
-                zoom: map.getZoom().toFixed(2)
-            });
-        });
-    }
 
   componentWillMount(){
     /* Create reference to messages in Firebase Database */
@@ -107,9 +87,11 @@ class App extends Component {
                   </div>
                   <div className="column is-6 noSelect" id="column-three">
                       {/*Third column*/}
-                      <div>
-                          <div ref={el => this.mapContainer = el} id="map"/>
-                      </div>
+                      <ReactMapGL {...this.state.viewport}
+                                  onViewportChange={(viewport) => this.setState({viewport})}
+                                  mapStyle={'mapbox://styles/mapbox/streets-v9'}
+                                  mapboxApiAccessToken={TOKEN}>
+                      </ReactMapGL>
                   </div>
               </div>
 
