@@ -46,8 +46,8 @@
 /*}*/
 
 nav {
-  padding-left: 70px;
-  padding-right: 70px;
+  padding-left: 100px;
+  padding-right: 100px;
   height: 2vh;
   padding-bottom: 0px;
   margin-bottom: 0px;
@@ -110,3 +110,6 @@ nav {
   outline: none !important;
 }
 
+.mapboxgl-ctrl-compass {
+  display: none !important;
+}

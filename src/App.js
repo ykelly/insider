@@ -3,14 +3,14 @@ import fire from "./fire"
 import './App.css';
 import "react-bulma-components/full";
 import 'font-awesome/css/font-awesome.min.css';
-import ReactMapGL from 'react-map-gl';
+import ReactMapGL, {NavigationControl} from 'react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 const TOKEN = "pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4M29iazA2Z2gycXA4N2pmbDZmangifQ.-g_vE53SD2WrJ6tFX7QHmA"
 
 class App extends Component {
 
-  constructor(props: Props) {
+  constructor(props) {
     super(props);
 
     this.state = {
@@ -20,6 +20,8 @@ class App extends Component {
             zoom: 12,
             width: 950,
             height: 1200,
+            bearing: 0,
+            pitch: 0
         },
         messages: [] }; // <- set up react state
   }
@@ -40,8 +42,12 @@ class App extends Component {
       this.inputEl.value = ''; // <- clear the input
   }
 
+  _updateViewport = (viewport) => {
+      this.setState({viewport});
+  }
+
   render() {
-      const { lng, lat, zoom} = this.state;
+      const {viewport} = this.state;
       return (
           <div>
               <div>
@@ -88,9 +94,14 @@ class App extends Component {
                   <div className="column is-6 noSelect" id="column-three">
                       {/*Third column*/}
                       <ReactMapGL {...this.state.viewport}
-                                  onViewportChange={(viewport) => this.setState({viewport})}
+                                  onViewportChange={this._updateViewport}
                                   mapStyle={'mapbox://styles/mapbox/streets-v9'}
                                   mapboxApiAccessToken={TOKEN}>
+
+                          <div className="nav" style={{position: "absolute", top: 100, left: 50}}>
+                              <NavigationControl onViewportChange={this._updateViewport}/>
+                          </div>
+
                       </ReactMapGL>
                   </div>
               </div>
