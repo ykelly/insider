@@ -46,8 +46,8 @@
 /*}*/
 
 nav {
-  padding-left: 70px;
-  padding-right: 70px;
+  padding-left: 100px;
+  padding-right: 100px;
   height: 2vh;
   padding-bottom: 0px;
   margin-bottom: 0px;
@@ -59,21 +59,23 @@ nav {
 
 
 #column-one {
-  background: url("images/filter.png") center;
-  background-size: cover;
+  /*background: url("images/filter.png") center;*/
+  /*background-size: cover;*/
+  background-color: darksalmon;
   border-right: rgba(128, 128, 128, 0.22) 1px solid;
 }
 
 #column-two {
-  background: url("images/result.png") center;
-  background-size: 34vw;
+  background-color: darkseagreen;
+  /*background: url("images/result.png") center;*/
+  /*background-size: 34vw;*/
 
 }
 
 #column-three {
-  background: url("images/map.png") center;
-  background-size: cover;
-
+  /*background: url("images/map.png") center;*/
+  /*background-size: cover;*/
+  padding-left: 0;
 }
 
 #columns {
@@ -99,4 +101,17 @@ nav {
 
 .navbar-item {
   font-size: 15px;
+}
+
+#map {
+  width: 950px;
+  height: 1100px;
+}
+
+:focus {
+  outline: none !important;
+}
+
+.mapboxgl-ctrl-compass {
+  display: none !important;
 }

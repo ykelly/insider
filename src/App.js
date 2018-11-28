@@ -1,19 +1,39 @@
 import React, { Component } from 'react';
 import fire from "./fire"
 import './App.css';
-import { Navbar } from "react-bulma-components/full";
-import { Icon } from "react-bulma-components/full";
-import { Button } from "react-bulma-components/full";
+import "react-bulma-components/full";
 import 'font-awesome/css/font-awesome.min.css';
+import ReactMapGL, {Marker, Popup, NavigationControl} from 'react-map-gl';
+import CityPin from './city-pin';
+import CityInfo from './city-info';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
+import CITIES from './data/cities.json';
 
-
+const TOKEN = "pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4M29iazA2Z2gycXA4N2pmbDZmangifQ.-g_vE53SD2WrJ6tFX7QHmA"
 
 class App extends Component {
+
   constructor(props) {
     super(props);
-    this.state = { messages: [] }; // <- set up react state
+
+    this.state = {
+        viewport: {
+            // latitude: 47.6053202,
+            // longitude: -122.3381718,
+            // zoom: 12,
+            latitude: 37.785164,
+            longitude: -100,
+            zoom: 3.5,
+            width: 950,
+            height: 1200,
+            bearing: 0,
+            pitch: 0
+        },
+        popupInfo: null,
+        messages: [] }; // <- set up react state
   }
+
   componentWillMount(){
     /* Create reference to messages in Firebase Database */
     let messagesRef = fire.database().ref('messages').orderByKey().limitToLast(100);
@@ -30,7 +50,38 @@ class App extends Component {
       this.inputEl.value = ''; // <- clear the input
   }
 
+  _updateViewport = (viewport) => {
+      this.setState({viewport});
+  }
+
+  _renderCityMarker = (city, index) => {
+      return (
+          <Marker
+              key={`marker-${index}`}
+              longitude={city.longitude}
+              latitude={city.latitude} >
+              <CityPin size={20} onClick={() => this.setState({popupInfo: city})} />
+          </Marker>
+      );
+  }
+
+  _renderPopup() {
+      const {popupInfo} = this.state;
+
+      return popupInfo && (
+          <Popup tipSize={5}
+                 anchor="top"
+                 longitude={popupInfo.longitude}
+                 latitude={popupInfo.latitude}
+                 closeOnClick={false}
+                 onClose={() => this.setState({popupInfo: null})} >
+              <CityInfo info={popupInfo} />
+          </Popup>
+      );
+  }
+
   render() {
+      const {viewport} = this.state;
       return (
           <div>
               <div>
@@ -45,11 +96,9 @@ class App extends Component {
                               <span></span>
                           </div>
                       </div>
-
                       <div className="navbar-menu is-right">
                           <div className="navbar-start">
                           </div>
-
                           <div className="navbar-end">
                               <div className="navbar-item">
                                   <div className="field is-grouped">
@@ -71,13 +120,27 @@ class App extends Component {
 
               <div className="columns" id="columns">
                   <div className="column is-2" id="column-one">
-                      First column
+                      {/*First column*/}
                   </div>
                   <div className="column is-4" id="column-two">
-                      Second column
+                      {/*Second column*/}
                   </div>
-                  <div className="column is-6" id="column-three">
-                      Third column
+                  <div className="column is-6 noSelect" id="column-three">
+                      {/*Third column*/}
+                      <ReactMapGL {...this.state.viewport}
+                                  onViewportChange={this._updateViewport}
+                                  mapStyle={'mapbox://styles/mapbox/streets-v9'}
+                                  mapboxApiAccessToken={TOKEN}>
+
+                          { CITIES.map(this._renderCityMarker) }
+
+                          {this._renderPopup()}
+
+                          <div className="nav" style={{position: "absolute", top: 100, left: 50}}>
+                              <NavigationControl onViewportChange={this._updateViewport}/>
+                          </div>
+
+                      </ReactMapGL>
                   </div>
               </div>
 
@@ -93,7 +156,6 @@ class App extends Component {
                               <span></span>
                           </div>
                       </div>
-
                       <div className="navbar-menu is-right">
                           <div className="navbar-start">
                           </div>
