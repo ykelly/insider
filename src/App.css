@@ -59,22 +59,24 @@ nav {
 
 
 #column-one {
-  background: url("images/filter.png") center;
-  background-size: cover;
+  /*background: url("images/filter.png") center;*/
+  /*background-size: cover;*/
+  background-color: darksalmon;
   border-right: rgba(128, 128, 128, 0.22) 1px solid;
 }
 
 #column-two {
-  background: url("images/result.png") center;
-  background-size: 34vw;
+  background-color: darkseagreen;
+  /*background: url("images/result.png") center;*/
+  /*background-size: 34vw;*/
 
 }
 
-/*#column-three {*/
+#column-three {
   /*background: url("images/map.png") center;*/
   /*background-size: cover;*/
-
-/*}*/
+  padding-left: 0;
+}
 
 #columns {
   height: 98vh;

@@ -3,8 +3,12 @@ import fire from "./fire"
 import './App.css';
 import "react-bulma-components/full";
 import 'font-awesome/css/font-awesome.min.css';
-import ReactMapGL, {NavigationControl} from 'react-map-gl';
+import ReactMapGL, {Marker, Popup, NavigationControl} from 'react-map-gl';
+import CityPin from './city-pin';
+import CityInfo from './city-info';
 import 'mapbox-gl/dist/mapbox-gl.css';
+
+import CITIES from './data/cities.json';
 
 const TOKEN = "pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4M29iazA2Z2gycXA4N2pmbDZmangifQ.-g_vE53SD2WrJ6tFX7QHmA"
 
@@ -15,14 +19,18 @@ class App extends Component {
 
     this.state = {
         viewport: {
-            latitude: 47.6053202,
-            longitude: -122.3381718,
-            zoom: 12,
+            // latitude: 47.6053202,
+            // longitude: -122.3381718,
+            // zoom: 12,
+            latitude: 37.785164,
+            longitude: -100,
+            zoom: 3.5,
             width: 950,
             height: 1200,
             bearing: 0,
             pitch: 0
         },
+        popupInfo: null,
         messages: [] }; // <- set up react state
   }
 
@@ -44,6 +52,32 @@ class App extends Component {
 
   _updateViewport = (viewport) => {
       this.setState({viewport});
+  }
+
+  _renderCityMarker = (city, index) => {
+      return (
+          <Marker
+              key={`marker-${index}`}
+              longitude={city.longitude}
+              latitude={city.latitude} >
+              <CityPin size={20} onClick={() => this.setState({popupInfo: city})} />
+          </Marker>
+      );
+  }
+
+  _renderPopup() {
+      const {popupInfo} = this.state;
+
+      return popupInfo && (
+          <Popup tipSize={5}
+                 anchor="top"
+                 longitude={popupInfo.longitude}
+                 latitude={popupInfo.latitude}
+                 closeOnClick={false}
+                 onClose={() => this.setState({popupInfo: null})} >
+              <CityInfo info={popupInfo} />
+          </Popup>
+      );
   }
 
   render() {
@@ -97,6 +131,10 @@ class App extends Component {
                                   onViewportChange={this._updateViewport}
                                   mapStyle={'mapbox://styles/mapbox/streets-v9'}
                                   mapboxApiAccessToken={TOKEN}>
+
+                          { CITIES.map(this._renderCityMarker) }
+
+                          {this._renderPopup()}
 
                           <div className="nav" style={{position: "absolute", top: 100, left: 50}}>
                               <NavigationControl onViewportChange={this._updateViewport}/>
