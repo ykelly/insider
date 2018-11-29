@@ -10,7 +10,8 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 
 import CITIES from './data/cities.json';
 
-const TOKEN = "pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4M29iazA2Z2gycXA4N2pmbDZmangifQ.-g_vE53SD2WrJ6tFX7QHmA"
+// const TOKEN = "pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4M29iazA2Z2gycXA4N2pmbDZmangifQ.-g_vE53SD2WrJ6tFX7QHmA"
+const TOKEN = 'pk.eyJ1IjoicndhbmcyIiwiYSI6ImNqajJ3a21hbzExZ3EzcXBnc2puNTRudWkifQ.EtOfYQEh_v4rQ0q71LAqWQ'
 
 class App extends Component {
 
@@ -24,7 +25,7 @@ class App extends Component {
             // zoom: 12,
             latitude: 37.785164,
             longitude: -100,
-            zoom: 3.5,
+            zoom: 12.09,
             width: 950,
             height: 1200,
             bearing: 0,
@@ -129,7 +130,8 @@ class App extends Component {
                       {/*Third column*/}
                       <ReactMapGL {...this.state.viewport}
                                   onViewportChange={this._updateViewport}
-                                  mapStyle={'mapbox://styles/mapbox/streets-v9'}
+                                  mapStyle={'mapbox://styles/rwang2/cjooll5t33iyn2ro8jvlhzhr5'}
+                                  // 'mapbox://styles/mapbox/streets-v9'
                                   mapboxApiAccessToken={TOKEN}>
 
                           { CITIES.map(this._renderCityMarker) }
