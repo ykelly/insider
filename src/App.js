@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import fire from "./fire"
+import fire from "./components/fire"
 import './App.css';
 import "react-bulma-components/full";
 import 'font-awesome/css/font-awesome.min.css';
@@ -44,6 +44,8 @@ class App extends Component {
       this.setState({ messages: [message].concat(this.state.messages) });
     })
   }
+
+  /* Firbase writes in remote realtime database*/
   addMessage(e) {
       e.preventDefault(); // <- prevent form submit from reloading the page
       /* Send the message to Firebase */
@@ -198,28 +200,6 @@ class App extends Component {
   //         }
   //       </ul>
   //     </form>
-  //   );
-  // }
-
-
-  // render() {
-  //   return (
-  //     <div className="App">
-  //       <header className="App-header">
-  //         <img src={logo} className="App-logo" alt="logo" />
-  //         <p>
-  //           Edit <code>src/App.js</code> and save to reload.
-  //         </p>
-  //         <a
-  //           className="App-link"
-  //           href="https://reactjs.org"
-  //           target="_blank"
-  //           rel="noopener noreferrer"
-  //         >
-  //           Learn React
-  //         </a>
-  //       </header>
-  //     </div>
   //   );
   // }
 }
