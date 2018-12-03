@@ -5,12 +5,14 @@ import './index.css';
 import App from './App';
 import Community from './components/community';
 import * as serviceWorker from './serviceWorker';
+import Post from './components/community/post';
 
 const routing = (
   <Router>
     <div>
       <Route exact path="/" component = {App} />
       <Route path = "/community" component = {Community}/>
+      <Route path = "/post" component = {Post} />
     </div>
   </Router>
 )
