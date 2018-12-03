@@ -1,4 +1,5 @@
 import React from 'react';
+import fire from '../fire';
 
 class Post extends React.Component {
   constructor(props) {
@@ -19,32 +20,58 @@ class Post extends React.Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state);
+    const itemsRef = fire.database().ref('Articles');
+    const item = {
+      title: this.state.title,
+      author: this.state.author,
+      text: this.state.text,
+      date: Date.now()
+    }
+
+    itemsRef.push(item);
+    this.setState({
+      title: '',
+      author: '',
+      text: '',
+      date: ''
+    })
   }
 
   render() {
     return(
       <div className = "submission-form">
         <form>
-          <input
-          name = "title"
-          placehold = "Title"
-          value = {this.state.title}
-          onChange={e => this.change(e)}
-          />
+          <label>
+            Title:
+            <input
+            name = "title"
+            placeholder = "Title"
+            value = {this.state.title}
+            onChange={e => this.change(e)}
+            />
+          </label>
+          <br/>
 
-          <input
-          name = "author"
-          placehold = "Author"
-          value = {this.state.author}
-          onChange={e => this.change(e)}
-          />
+          <label>
+            Author:
+            <input
+            name = "author"
+            placeholder = "Author"
+            value = {this.state.author}
+            onChange={e => this.change(e)}
+            />
+          </label>
 
-          <textarea
-            name = "text"
-            value = {this.state.text}
-            onChange = {e => this.change(e)}
-          />
+          <br/>
+
+          <label>
+            Comments:
+            <textarea
+              name = "text"
+              value = {this.state.text}
+              onChange = {e => this.change(e)}
+            />
+          </label>
 
           <button onClick={(e) => this.onSubmit(e)}>Submit</button>
         </form>
