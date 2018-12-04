@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import fire from '../fire';
 
 class Post extends React.Component {
@@ -8,7 +9,8 @@ class Post extends React.Component {
       title: "",
       author: "",
       text: "",
-      date: ""
+      date: "",
+      submitted: false
     };
   }
 
@@ -33,11 +35,16 @@ class Post extends React.Component {
       title: '',
       author: '',
       text: '',
-      date: ''
+      date: '',
+      submitted: true
     })
   }
 
   render() {
+    if (this.state.submitted == true) {
+      return <Redirect to = '/community' />
+    }
+    
     return(
       <div className = "submission-form">
         <form>

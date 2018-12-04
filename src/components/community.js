@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Header from './community/Header';
 import Footer from './community/Footer';
 import Article from './community/Article';
@@ -37,6 +38,7 @@ class Community extends React.Component {
     return (
       <div>
         <Header />
+        <Link to="./post"><button>Post</button></Link>
         <Articles articles = {this.state.articles} />
         <Footer />
       </div>
