@@ -38,7 +38,7 @@ class Community extends React.Component {
     return (
       <div>
         <Header />
-        <Link to="./post"><button>Post</button></Link>
+        <Link to="/post"><button>Post</button></Link>
         <Articles articles = {this.state.articles} />
         <Footer />
       </div>

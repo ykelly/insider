@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Route, BrowserRouter as Router } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Switch, Fade } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import Community from './components/community';
@@ -10,9 +10,11 @@ import Post from './components/community/post';
 const routing = (
   <Router>
     <div>
-      <Route exact path="/" component = {App} />
-      <Route path = "/community" component = {Community}/>
-      <Route path = "/post" component = {Post} />
+      <Switch>
+        <Route exact path="/" component = {App} />
+        <Route path = "/community" component = {Community}/>
+        <Route path = "/post" component = {Post} />
+      </Switch>
     </div>
   </Router>
 )
