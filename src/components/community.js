@@ -2,13 +2,14 @@ import React from 'react';
 import Header from './community/Header';
 import Footer from './community/Footer';
 import Article from './community/Article';
+import Articles from './community/Articles';
 import fire from './fire';
 
 class Community extends React.Component {
   constructor(){
     super();
     this.state = {
-      items:[]
+      articles:[]
     };
   }
 
@@ -27,7 +28,7 @@ class Community extends React.Component {
         });
       }
       this.setState({
-        items: newState
+        articles: newState
       });
     });
   }
@@ -36,26 +37,7 @@ class Community extends React.Component {
     return (
       <div>
         <Header />
-
-        <section className = 'display-articles'>
-          <div className = 'wrapper'>
-            <ul>
-              {
-                this.state.items.map((item) => {
-                  return(
-                    <li key={item.id}>
-                      <h3>{item.title}</h3>
-                      <h4>{item.author}</h4>
-                      <p>{item.text}</p>
-                      <p>{item.date.toString()}</p>
-                    </li>
-                  )
-                })
-              }
-            </ul>
-          </div>
-        </section>
-
+        <Articles articles = {this.state.articles} />
         <Footer />
       </div>
     )

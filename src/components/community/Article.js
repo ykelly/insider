@@ -14,7 +14,12 @@ class Article extends React.Component {
   render(){
     return (
       <div>
-        This is an Article
+        <li key={this.props.item.id}>
+          <h3>{this.props.item.title}</h3>
+          <h4>{this.props.item.author}</h4>
+          <p>{this.props.item.text}</p>
+          <p>{this.props.item.date.toString()}</p>
+        </li>
       </div>
     );
   }
