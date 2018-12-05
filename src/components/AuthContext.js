@@ -1,30 +1,24 @@
-import React from 'react';
-import firebase, { auth, provider } from './fire.js';
+import React from 'react'
 
 const AuthContext = React.createContext()
 
 class AuthProvider extends React.Component {
-  state = { isAuth: false, user: null }
+  state = { isAuth: false }
 
   constructor() {
-    super()
-    this.login = this.login.bind(this)
-    this.logout = this.logout.bind(this)
+    super();
+    this.login = this.login.bind(this);
+    this.logout = this.logout.bind(this);
   }
 
   login() {
-    auth.signInWithPopup(provider)
-      .then((result) => {
-        const user = result.user;
-        this.setState({
-          user: user,
-          isAuth: true
-        })
-      })
+    setTimeout(() => this.setState({ isAuth: true }), 1000);
+    console.log(this.state.isAuth);
   }
 
   logout() {
-    this.setState({ isAuth: false })
+    this.setState({ isAuth: false });
+    console.log(this.state.isAuth);
   }
 
   render() {

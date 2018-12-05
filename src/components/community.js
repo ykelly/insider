@@ -5,6 +5,7 @@ import Footer from './community/Footer';
 import Article from './community/Article';
 import Articles from './community/Articles';
 import fire from './fire';
+import { AuthConsumer } from './AuthContext.js';
 
 class Community extends React.Component {
   constructor(){
@@ -38,7 +39,22 @@ class Community extends React.Component {
     return (
       <div>
         <Header />
-        <Link to="/post"><button>Post</button></Link>
+        <div>
+          <AuthConsumer>
+            {({ isAuth, login, logout }) => (
+              <div>
+                <h3><Link to="/">Home</Link></h3>
+
+                {isAuth ? (
+                  <Link to="/post">Logged in</Link>
+                ) : (
+                  <button onClick={login}>Login</button>
+                )}
+              </div>
+            )}
+          </AuthConsumer>
+        </div>
+        // <Link to="/post"><button>Post</button></Link>
         <Articles articles = {this.state.articles} />
         <Footer />
       </div>
