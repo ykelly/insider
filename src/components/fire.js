@@ -10,4 +10,7 @@ var config = {
 };
 
 var fire = firebase.initializeApp(config);
+
+export const provider = new firebase.auth.GoogleAuthProvider();
+export const auth = new firebase.auth();
 export default fire;

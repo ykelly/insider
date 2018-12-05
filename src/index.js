@@ -6,6 +6,8 @@ import App from './App';
 import Community from './components/community';
 import * as serviceWorker from './serviceWorker';
 import Post from './components/community/post';
+import { AuthProvider } from './components/AuthContext';
+import ProtectedRoute from './components/ProtectedRoute';
 
 const routing = (
   <Router>
@@ -13,7 +15,7 @@ const routing = (
       <Switch>
         <Route exact path="/" component = {App} />
         <Route path = "/community" component = {Community}/>
-        <Route path = "/post" component = {Post} />
+        <AuthProvider><ProtectedRoute path = "/post" component = {Post} /></AuthProvider>
       </Switch>
     </div>
   </Router>
