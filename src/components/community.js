@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Header from './community/Header';
 import Footer from './community/Footer';
-import Article from './community/Article';
 import Articles from './community/Articles';
 import fire from './fire';
 import { AuthConsumer } from './AuthContext.js';
@@ -44,9 +43,11 @@ class Community extends React.Component {
             {({ isAuth, login, logout }) => (
               <div>
                 <h3><Link to="/">Home</Link></h3>
-
                 {isAuth ? (
-                  <Link to="/post">Logged in</Link>
+                  <div>
+                    <Link to="/post">Logged in</Link>
+                    <button onClick={logout}>logout</button>
+                  </div>
                 ) : (
                   <button onClick={login}>Login</button>
                 )}
