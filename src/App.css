@@ -117,3 +117,11 @@ nav {
   display: none !important;
 }
 
+.submission-form {
+  width: 500px;
+}
+
+.card {
+  width: 300px;
+  margin-left: 300px;
+}

@@ -6,6 +6,7 @@ import Articles from './community/Articles';
 import fire from './fire';
 import { AuthConsumer } from './AuthContext.js';
 
+
 class Community extends React.Component {
   constructor(){
     super();
@@ -37,11 +38,11 @@ class Community extends React.Component {
   render() {
     return (
       <div>
-        <Header />
+        <Header/>
         <div>
-          <AuthConsumer>
+          <AuthConsumer >
             {({ isAuth, login, logout }) => (
-              <div>
+              <div className="community">
                 <h3><Link to="/">Home</Link></h3>
                 {isAuth ? (
                   <div>

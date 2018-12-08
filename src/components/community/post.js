@@ -31,7 +31,7 @@ class Post extends React.Component {
       title: this.state.title,
       author: this.state.author,
       text: this.state.text,
-      date: Date(Date.now()).toString()
+      date: new Date().toLocaleString()
     }
 
     itemsRef.push(item);
