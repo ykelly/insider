@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
+import fire, { auth, provider } from './fire';
 
 const AuthContext = React.createContext()
 
 class AuthProvider extends React.Component {
-  state = { isAuth: false }
+  state = { isAuth: false, user: null }
 
   constructor() {
     super();
@@ -11,14 +12,36 @@ class AuthProvider extends React.Component {
     this.logout = this.logout.bind(this);
   }
 
+  componentDidMount() {
+    auth.onAuthStateChanged((user) => {
+      if(user) {
+        this.setState({
+          isAuth: true,
+          user: user
+        })
+      }
+    })
+  }
+
   login() {
-    this.setState({ isAuth: true });
-    console.log(this.state.isAuth);
+    auth.signInWithPopup(provider)
+      .then((result) => {
+        const user = result.user;
+        this.setState({
+          isAuth: true,
+          user: user
+        })
+      })
   }
 
   logout() {
-    this.setState({ isAuth: false });
-    console.log(this.state.isAuth);
+    auth.signOut()
+      .then(() => {
+        this.setState({
+          isAuth: false,
+          user: null
+        })
+      })
   }
 
   render() {
@@ -26,6 +49,7 @@ class AuthProvider extends React.Component {
       <AuthContext.Provider
         value={{
           isAuth: this.state.isAuth,
+          user: this.state.user,
           login: this.login,
           logout: this.logout
         }}
