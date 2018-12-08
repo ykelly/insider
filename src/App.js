@@ -7,6 +7,8 @@ import ReactMapGL, {Marker, Popup, NavigationControl} from 'react-map-gl';
 import CityPin from './city-pin';
 import CityInfo from './city-info';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import Header from './components/community/Header'
+import Footer from './components/community/Footer'
 
 import CITIES from './data/cities.json';
 
@@ -26,7 +28,7 @@ class App extends Component {
             latitude: 47.6049,
             longitude: -122.3299,
             zoom: 12.09,
-            width: 950,
+            width: 1620,
             height: 1200,
             bearing: 0,
             pitch: 0
@@ -70,14 +72,14 @@ class App extends Component {
       return (
           <div>
 
-
+              <Header/>
               <div className="columns" id="columns">
                   <div className="column is-2" id="column-one">
                       {/*First column*/}
                   </div>
-                  <div className="column is-4" id="column-two">
-                      {/*Second column*/}
-                  </div>
+                  {/*<div className="column is-4" id="column-two">*/}
+                      {/*/!*Second column*!/*/}
+                  {/*</div>*/}
                   <div className="column is-6 noSelect" id="column-three">
                       {/*Third column*/}
                       <ReactMapGL {...this.state.viewport}
@@ -97,7 +99,7 @@ class App extends Component {
                       </ReactMapGL>
                   </div>
               </div>
-
+              <Footer/>
 
           </div>
       )
