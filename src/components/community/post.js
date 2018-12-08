@@ -27,7 +27,7 @@ class Post extends React.Component {
       title: this.state.title,
       author: this.state.author,
       text: this.state.text,
-      date: Date.now()
+      date: Date(Date.now()).toString()
     }
 
     itemsRef.push(item);
@@ -41,10 +41,10 @@ class Post extends React.Component {
   }
 
   render() {
-    if (this.state.submitted == true) {
+    if (this.state.submitted === true) {
       return <Redirect to = '/community' />
     }
-    
+
     return(
       <div className = "submission-form">
         <form>

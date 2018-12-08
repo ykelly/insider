@@ -25,7 +25,7 @@ class Community extends React.Component {
           title: items[item].title,
           author: items[item].author,
           text: items[item].text,
-          date: Date(items[item].date)
+          date: items[item].date
         });
       }
       this.setState({
