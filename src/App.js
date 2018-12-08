@@ -69,39 +69,7 @@ class App extends Component {
       const {viewport} = this.state;
       return (
           <div>
-              <div>
-                  <nav className="navbar is-light is-fixed-top has-shadow">
-                      <div className="navbar-brand">
-                          <a className="navbar-item">
-                              <strong>Airbnb Insider</strong>
-                          </a>
-                          <div className="navbar-burger burger" data-target="navbarExampleTransparentExample">
-                              <span></span>
-                              <span></span>
-                              <span></span>
-                          </div>
-                      </div>
-                      <div className="navbar-menu is-right">
-                          <div className="navbar-start">
-                          </div>
-                          <div className="navbar-end">
-                              <div className="navbar-item">
-                                  <div className="field is-grouped">
-                                      <a className="navbar-item">
-                                          Home
-                                      </a>
-                                      <a className="navbar-item">
-                                          Search
-                                      </a>
-                                      <a className="navbar-item">
-                                          About
-                                      </a>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </nav>
-              </div>
+
 
               <div className="columns" id="columns">
                   <div className="column is-2" id="column-one">
@@ -130,42 +98,7 @@ class App extends Component {
                   </div>
               </div>
 
-              <div>
-                  <nav className="navbar is-transparent is-dark is-fixed-bottom has-shadow">
-                      <div className="navbar-brand">
-                          <a className="navbar-item">
-                              <strong>Airbnb Insider</strong>
-                          </a>
-                          <div className="navbar-burger burger" data-target="navbarExampleTransparentExample">
-                              <span></span>
-                              <span></span>
-                              <span></span>
-                          </div>
-                      </div>
-                      <div className="navbar-menu is-right">
-                          <div className="navbar-start">
-                          </div>
 
-                          <div className="navbar-end">
-                              <div className="navbar-item">
-                                  <div className="field is-grouped">
-                                      <div className="control">
-                                          <a className="icons">
-                                              <i className="fa fa-facebook"></i>
-                                          </a>
-                                          <a className="icons">
-                                              <i className="fa fa-instagram"></i>
-                                          </a>
-                                          <a className="icons">
-                                              <i className="fa fa-twitter"></i>
-                                          </a>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </nav>
-              </div>
           </div>
       )
   }
