@@ -70,7 +70,7 @@ class App extends Component {
   render() {
       const {viewport} = this.state;
       return (
-          <div>
+          <div className="body">
 
               <Header/>
               <div className="columns" id="columns">

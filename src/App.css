@@ -81,6 +81,7 @@ nav {
 #columns {
   height: 98vh;
   position: relative;
+    overflow: hidden;
 }
 
 .fa-facebook {
@@ -115,3 +116,4 @@ nav {
 .mapboxgl-ctrl-compass {
   display: none !important;
 }
+
