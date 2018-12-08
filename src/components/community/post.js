@@ -1,6 +1,10 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import fire from '../fire';
+import "react-bulma-components/full";
+import 'font-awesome/css/font-awesome.min.css';
+import '.././../App.css';
+
 
 class Post extends React.Component {
   constructor(props) {
@@ -48,39 +52,74 @@ class Post extends React.Component {
     return(
       <div className = "submission-form">
         <form>
-          <label>
-            Title:
-            <input
-            name = "title"
-            placeholder = "Title"
-            value = {this.state.title}
-            onChange={e => this.change(e)}
-            />
-          </label>
-          <br/>
 
-          <label>
-            Author:
-            <input
-            name = "author"
-            placeholder = "Author"
-            value = {this.state.author}
-            onChange={e => this.change(e)}
-            />
-          </label>
+            <div className="field is-horizontal">
+                <div className="field-label is-normal">
+                    <label className="label">Title</label>
+                </div>
+                <div className="field-body">
+                    <div className="field">
+                        <div className="control">
+                            <input className="input"
+                                   type="text"
+                                   name = "title"
+                                   placeholder = "Title"
+                                   value = {this.state.title}
+                                   onChange={e => this.change(e)}/>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
           <br/>
 
-          <label>
-            Comments:
-            <textarea
-              name = "text"
-              value = {this.state.text}
-              onChange = {e => this.change(e)}
-            />
-          </label>
+            <div className="field is-horizontal">
+                <div className="field-label is-normal">
+                    <label className="label">Author</label>
+                </div>
+                <div className="field-body">
+                    <div className="field">
+                        <div className="control">
+                            <input className="input"
+                                   type="text"
+                                   name = "author"
+                                   placeholder = "Author"
+                                   value = {this.state.author}
+                                   onChange={e => this.change(e)}/>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-          <button onClick={(e) => this.onSubmit(e)}>Submit</button>
+          <br/>
+
+            <div className="field is-horizontal">
+                <div className="field-label is-normal">
+                    <label className="label">Comment</label>
+                </div>
+                <div className="field-body">
+                    <div className="field">
+                        <div className="control">
+                            <textarea className="textarea"
+                                      placeholder="What are your thoughts on this location?"
+                                      name="text"
+                                      onChange={e=>this.change(e)}
+                                      value={this.state.text} ></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="field-body">
+                <div className="field">
+                    <div className="control">
+                        <button className="button is-primary" onClick={(e) => this.onSubmit(e)}>
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </div>
+
         </form>
       </div>
     );
