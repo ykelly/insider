@@ -28,8 +28,8 @@ class App extends Component {
             latitude: 47.6049,
             longitude: -122.3299,
             zoom: 12.09,
-            width: 1620,
-            height: 1200,
+            width: "100vw",
+            height: "100vh",
             bearing: 0,
             pitch: 0
         },
