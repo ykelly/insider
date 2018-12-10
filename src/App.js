@@ -27,7 +27,7 @@ class App extends Component {
             // zoom: 12,
             latitude: 47.6049,
             longitude: -122.3299,
-            zoom: 12.09,
+            zoom: 15.09,
             width: "100vw",
             height: "100vh",
             bearing: 0,
@@ -84,8 +84,7 @@ class App extends Component {
                       {/*Third column*/}
                       <ReactMapGL {...this.state.viewport}
                                   onViewportChange={this._updateViewport}
-                                  // mapStyle={'mapbox://styles/rwang2/cjooll5t33iyn2ro8jvlhzhr5'}
-                                  // 'mapbox://styles/mapbox/streets-v9'
+                                  mapStyle={'mapbox://styles/rwang2/cjooll5t33iyn2ro8jvlhzhr5'}
                                   mapboxApiAccessToken={TOKEN}>
 
                           { LISTINGS.map(this._renderCityMarker) }
