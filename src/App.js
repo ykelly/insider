@@ -11,8 +11,8 @@ import Header from './components/community/Header'
 import Footer from './components/community/Footer'
 
 import CITIES from './data/cities.json';
+import LISTINGS from './data/listings.json';
 
-// const TOKEN = "pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4M29iazA2Z2gycXA4N2pmbDZmangifQ.-g_vE53SD2WrJ6tFX7QHmA"
 const TOKEN = 'pk.eyJ1IjoicndhbmcyIiwiYSI6ImNqajJ3a21hbzExZ3EzcXBnc2puNTRudWkifQ.EtOfYQEh_v4rQ0q71LAqWQ'
 
 class App extends Component {
@@ -41,13 +41,13 @@ class App extends Component {
       this.setState({viewport});
   }
 
-  _renderCityMarker = (city, index) => {
+  _renderCityMarker = (listing, index) => {
       return (
           <Marker
               key={`marker-${index}`}
-              longitude={city.longitude}
-              latitude={city.latitude} >
-              <CityPin size={20} onClick={() => this.setState({popupInfo: city})} />
+              longitude={listing.longitude}
+              latitude={listing.latitude} >
+              <CityPin size={20} onClick={() => this.setState({popupInfo: listing})} />
           </Marker>
       );
   }
@@ -84,11 +84,11 @@ class App extends Component {
                       {/*Third column*/}
                       <ReactMapGL {...this.state.viewport}
                                   onViewportChange={this._updateViewport}
-                                  mapStyle={'mapbox://styles/rwang2/cjooll5t33iyn2ro8jvlhzhr5'}
+                                  // mapStyle={'mapbox://styles/rwang2/cjooll5t33iyn2ro8jvlhzhr5'}
                                   // 'mapbox://styles/mapbox/streets-v9'
                                   mapboxApiAccessToken={TOKEN}>
 
-                          { CITIES.map(this._renderCityMarker) }
+                          { LISTINGS.map(this._renderCityMarker) }
 
                           {this._renderPopup()}
 
