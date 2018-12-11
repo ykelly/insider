@@ -13,27 +13,26 @@ const TOKEN = 'pk.eyJ1IjoicndhbmcyIiwiYSI6ImNqajJ3a21hbzExZ3EzcXBnc2puNTRudWkifQ
 class App extends Component {
   constructor(props) {
     super(props);
+    
     this.state = {
-        viewport: {
-            latitude: 47.6049,
-            longitude: -122.3299,
-            zoom: 12.09,
-            width: "100vw",
-            height: "100vh",
-            bearing: 0,
-            pitch: 0,
-        },
-        hoverInfo: null
-      }; // <- set up react state
-      this._renderPopup = this._renderPopup.bind(this);
+      viewport: {
+          latitude: 47.6049,
+          longitude: -122.3299,
+          zoom: 12.09,
+          bearing: 0,
+          pitch: 0,
+      },
+      hoverInfo: null
+    }; // <- set up react state
+    this._renderPopup = this._renderPopup.bind(this);
   }
-  
+
   _updateViewport = (viewport) => {
-      this.setState({viewport});
+    this.setState({viewport});
   }
 
   _onHover = event => {
-   let hoverInfo = null;
+    let hoverInfo = null;
 
    const apartment = event.features && event.features.find(f => f.layer.id === 'listings-percent');
    if (apartment) {
@@ -60,36 +59,37 @@ class App extends Component {
    return null;
  }
 
-  render() {
-      const {viewport} = this.state;
-      return (
-          <div className="body">
+ render() {
+   const {viewport} = this.state;
+   return (
+    <div className="body">
+        <Header/>
 
-              <Header/>
-              <div className="columns" id="columns">
-                  <div className="column is-2" id="column-one"></div>
+        <div className="columns" id="columns">
+            <div className="column is-2" id="column-one"></div>
 
-                  <div className="column is-6 noSelect" id="column-three">
-                      <MapGL {...this.state.viewport}
-                                  onViewportChange={this._updateViewport}
-                                  mapStyle={'mapbox://styles/rwang2/cjooll5t33iyn2ro8jvlhzhr5'}
-                                  mapboxApiAccessToken={TOKEN}
-                                  onClick = {this._onHover}
-                                  >
+            <div className="column is-6 noSelect" id="column-three">
+                <MapGL {...this.state.viewport}
+                    width="100vw"
+                    height="100vh"
+                    onViewportChange={this._updateViewport}
+                    mapStyle={'mapbox://styles/rwang2/cjooll5t33iyn2ro8jvlhzhr5'}
+                    mapboxApiAccessToken={TOKEN}
+                    onClick = {this._onHover}
+                    >
 
-                          { this._renderPopup() }
+                    { this._renderPopup() }
 
-                          <div className="nav" style={{position: "absolute", top: 100, left: 50}}>
-                              <NavigationControl onViewportChange={this._updateViewport}/>
-                          </div>
+                    <div className="nav" style={{position: "absolute", top: 100, left: 50}}>
+                        <NavigationControl onViewportChange={this._updateViewport}/>
+                    </div>
+                </MapGL>
+            </div>
+        </div>
 
-                      </MapGL>
-                  </div>
-              </div>
-              <Footer/>
-
-          </div>
-      )
+        <Footer/>
+    </div>
+    )
   }
 }
 
