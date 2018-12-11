@@ -33,11 +33,13 @@ class App extends Component {
   _onHover = event => {
    let hoverInfo = null;
 
-   const apartment = event.features && event.features.find(f => f.layer.id === 'listing-num');
-   if (apartment) {
+   const listing = event.features && event.features.find(f => f.layer.id === 'listing-num');
+   const nbhd = event.features && event.features.find(f => f.layer.id === 'seattle-neighbourhood');
+   if (listing) {
      hoverInfo = {
        lngLat: event.lngLat,
-       properties: apartment.properties
+       properties1: listing.properties,
+       properties2: nbhd.properties
      };
    }
    this.setState({
@@ -51,7 +53,10 @@ class App extends Component {
    if (hoverInfo) {
      return (
        <Popup longitude={hoverInfo.lngLat[0]} latitude={hoverInfo.lngLat[1]} closeButton={false}>
-         <div>${hoverInfo.properties.PRICE}/night</div>
+         <div>Price: ${hoverInfo.properties1.PRICE}/night</div>
+         <div>Neighborhood: {hoverInfo.properties2.NBHD}</div>
+         <div>Median home value: ${hoverInfo.properties2.MED_H_VAL}</div>
+         <div><a href = {hoverInfo.properties1.URL}>Listing URL</a></div>
        </Popup>
      );
    }
