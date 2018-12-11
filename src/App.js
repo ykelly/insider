@@ -35,7 +35,7 @@ class App extends Component {
   _onHover = event => {
    let hoverInfo = null;
 
-   const apartment = event.features && event.features.find(f => f.layer.id === 'listings-percent');
+   const apartment = event.features && event.features.find(f => f.layer.id === 'listing-num');
    if (apartment) {
      hoverInfo = {
        lngLat: event.lngLat,
@@ -53,7 +53,7 @@ class App extends Component {
    if (hoverInfo) {
      return (
        <Popup longitude={hoverInfo.lngLat[0]} latitude={hoverInfo.lngLat[1]} closeButton={false}>
-         <div>{hoverInfo.properties.neighbourhood}</div>
+         <div>${hoverInfo.properties.PRICE}/night</div>
        </Popup>
      );
    }
@@ -72,7 +72,7 @@ class App extends Component {
                   <div className="column is-6 noSelect" id="column-three">
                       <MapGL {...this.state.viewport}
                                   onViewportChange={this._updateViewport}
-                                  mapStyle={'mapbox://styles/rwang2/cjooll5t33iyn2ro8jvlhzhr5'}
+                                  mapStyle={'mapbox://styles/rwang2/cjpj682np42vh2rr6zz04eddu'}
                                   mapboxApiAccessToken={TOKEN}
                                   onClick = {this._onHover}
                                   >
