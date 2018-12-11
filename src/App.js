@@ -18,8 +18,6 @@ class App extends Component {
             latitude: 47.6049,
             longitude: -122.3299,
             zoom: 12.09,
-            width: "100vw",
-            height: "100vh",
             bearing: 0,
             pitch: 0,
         },
@@ -72,6 +70,8 @@ class App extends Component {
                   <div className="column is-6 noSelect" id="column-three">
                       <MapGL {...this.state.viewport}
                                   onViewportChange={this._updateViewport}
+                                  width="100vw"
+                                  height="100vh"
                                   mapStyle={'mapbox://styles/rwang2/cjpj682np42vh2rr6zz04eddu'}
                                   mapboxApiAccessToken={TOKEN}
                                   onClick = {this._onHover}
