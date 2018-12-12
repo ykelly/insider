@@ -15,7 +15,7 @@ class Footer extends React.Component {
           <nav className="navbar is-transparent is-dark is-fixed-bottom has-shadow">
               <div className="navbar-brand">
                   <Link to="/welcome" className="navbar-item">
-                      <strong>Airbnb Insider</strong>
+                      <strong>&copy; Rock, Katya, Ruotong, Daniel {new Date().getFullYear()}</strong>
                   </Link>
                   <div className="navbar-burger burger" data-target="navbarExampleTransparentExample">
                       <span></span>
