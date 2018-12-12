@@ -39,25 +39,33 @@ class Community extends React.Component {
     return (
       <div>
         <Header/>
-        <div>
-          <AuthConsumer >
-            {({ isAuth, login, logout }) => (
-              <div className="community">
-                <h3><Link to="/">Home</Link></h3>
-                {isAuth ? (
-                  <div>
-                    <Link to="/post">Logged in</Link>
-                    <button onClick={logout}>logout</button>
-                  </div>
-                ) : (
-                  <button onClick={login}>Login</button>
-                )}
-              </div>
-            )}
-          </AuthConsumer>
-        </div>
-        // <Link to="/post"><button>Post</button></Link>
-        <Articles articles = {this.state.articles} />
+        <section className="hero is-primary"  style={{"justify-content": "center", "align-items": "center"}}>
+          <div className="hero-body">
+            <AuthConsumer >
+              {({ isAuth, login, logout }) => (
+                <div style={{"padding-top": "50%"}}>
+                  {isAuth ? (
+                    <span>
+                      <button className="button is-white"><Link to="/post">Post</Link></button>
+                      &nbsp;
+                      <button className="button is-white" onClick={logout}>log out</button>
+                    </span>
+                  ) : (
+                    <span>
+                      <button className="button is-white" onClick={login}>Log in</button><br/>
+                    </span>
+                  )}
+                </div>
+              )}
+            </AuthConsumer>
+          </div>
+        </section>
+
+        <section className = "section">
+           <Articles className = "container" articles = {this.state.articles} />
+
+        </section>
+
         <Footer />
       </div>
     )
