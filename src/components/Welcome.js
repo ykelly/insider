@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './community/Header';
 import Footer from './community/Footer';
+import { Link } from 'react-router-dom';
 
 class Welcome extends React.Component {
   render() {
@@ -11,10 +12,10 @@ class Welcome extends React.Component {
         </div>
 
         <div className="hero-body">
-          <div className="container has-text-center">
-            <p className="title is-1 is-spaced">
+          <div className="container">
+            <Link to="/"><p className="title is-1 is-spaced">
               Airbnb Insider
-            </p>
+            </p></Link>
             <br/>
 
             <div className="columns is-desktop">
@@ -37,6 +38,8 @@ class Welcome extends React.Component {
                 </p>
               </div>
             </div>
+
+            <Link to="/" className="button is-rounded">Go to Visualization Map</Link>
           </div>
         </div>
         <div class="hero-foot">
