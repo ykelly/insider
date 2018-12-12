@@ -22,12 +22,8 @@ class Header extends React.Component {
                   <div className="navbar-end">
                       <div className="navbar-item">
                           <div className="field is-grouped">
-                              <a className="navbar-item">
-                                  Home
-                              </a>
-                              <a className="navbar-item">
-                                  Search
-                              </a>
+                              <Link to="/welcome" className="navbar-item">Home</Link>
+                              <Link to="/" className="navbar-item">Map</Link>
                               <Link to="/about" className = "navbar-item">About</Link>
                               <Link to="/community" className = "navbar-item">Community</Link>
                           </div>
