@@ -151,11 +151,23 @@ nav {
   margin-top: 30px;
   margin-bottom: 7px;
   margin-left: 10px;
-
+  color: #000;
 }
 
 #first-search-text {
-  margin-top: 40px;
+  margin-top: 20px;
   margin-bottom: 7px;
   margin-left: 10px;
+  color: #000;
+}
+
+#map-info {
+  border-top: #e7e7e7 solid 1px;
+  color: #000;
+  margin-top: 40px;
+  padding-top: 12px;
+}
+
+#map-info-text {
+  margin-top: 5px;
 }

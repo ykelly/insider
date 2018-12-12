@@ -151,6 +151,14 @@ class App extends Component {
                               <i className="fa fa-user"></i>
                           </span>
                       </div>
+                      <div id="map-info">
+                          <p className="is-size-6 has-text-weight-bold">Map Legend</p>
+                          <p className="is-size-6 has-text-grey" id="map-info-text">
+                              Only showing listings for Seattle.
+                              Only showing listings for Seattle.
+                              Only showing listings for Seattle.
+                          </p>
+                      </div>
                   </div>
 
                   <div className="column is-6 noSelect" id="column-three">
