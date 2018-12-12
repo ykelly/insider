@@ -75,7 +75,7 @@ class App extends Component {
                           <p className="is-size-2 is-uppercase has-text-weight-bold">Search</p>
                       </div>
                       <div id="first-search-text">
-                          <p className="is-size-6 has-text-weight-bold">Price Range</p>
+                          <p className="is-size-6 has-text-weight-bold">Neighborhood</p>
                       </div>
                       <div className="control has-icons-left" id="first-filter">
                           <div className="select is-rounded">
