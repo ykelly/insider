@@ -61,8 +61,11 @@ nav {
 #column-one {
   /*background: url("images/filter.png") center;*/
   /*background-size: cover;*/
-  background-color: darksalmon;
+  /*background-color: darksalmon;*/
   border-right: rgba(128, 128, 128, 0.22) 1px solid;
+  padding-left: 40px;
+  padding-top: 100px;
+  padding-right: 20px;
 }
 
 #column-two {
@@ -124,4 +127,35 @@ nav {
 .card {
   width: 300px;
   margin-left: 300px;
+}
+
+#first-filter {
+  width: 100%;
+}
+
+#search {
+  border-bottom: #e7e7e7 solid 1px;
+  padding-bottom: 9px;
+  color: #000;
+}
+
+.input {
+  margin-right: 20px;
+}
+
+#zipcode {
+  margin-right: 30px;
+}
+
+#search-text {
+  margin-top: 30px;
+  margin-bottom: 7px;
+  margin-left: 10px;
+
+}
+
+#first-search-text {
+  margin-top: 40px;
+  margin-bottom: 7px;
+  margin-left: 10px;
 }
