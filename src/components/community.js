@@ -53,7 +53,7 @@ class Community extends React.Component {
                   ) : (
                     <span>
                       <button className="button is-white" onClick={login}>Log in</button><br/>
-                    </span>
+                    </span> 
                   )}
                 </div>
               )}
