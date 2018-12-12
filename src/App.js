@@ -8,7 +8,11 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import Header from './components/community/Header'
 import Footer from './components/community/Footer'
 
-const TOKEN = 'pk.eyJ1IjoicndhbmcyIiwiYSI6ImNqajJ3a21hbzExZ3EzcXBnc2puNTRudWkifQ.EtOfYQEh_v4rQ0q71LAqWQ'
+const TOKEN = 'pk.eyJ1IjoicndhbmcyIiwiYSI6ImNqajJ3a21hbzExZ3EzcXBnc2puNTRudWkifQ.EtOfYQEh_v4rQ0q71LAqWQ';
+const minLat = 47.45;
+const maxLat = 47.75;
+const minLong = -122.3;
+const maxLong = -122.1;
 
 class App extends Component {
   constructor(props) {
@@ -18,6 +22,7 @@ class App extends Component {
             latitude: 47.6049,
             longitude: -122.3299,
             zoom: 12.09,
+            minZoom: 10,
             bearing: 0,
             pitch: 0,
         },
@@ -27,6 +32,15 @@ class App extends Component {
   }
 
   _updateViewport = (viewport) => {
+      if (viewport.longitude < minLong) {
+          viewport.longitude = minLong;
+      } else if (viewport.longitude > maxLong) {
+          viewport.longitude = maxLong;
+      } else if (viewport.latitude < minLat) {
+          viewport.latitude = minLat;
+      } else if (viewport.latitude > maxLat) {
+          viewport.latitude = maxLat;
+      }
       this.setState({viewport});
   }
 
