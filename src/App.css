@@ -64,8 +64,14 @@ nav {
   /*background-color: darksalmon;*/
   border-right: rgba(128, 128, 128, 0.22) 1px solid;
   padding-left: 40px;
-  padding-top: 100px;
+  padding-top: 80px;
   padding-right: 20px;
+  height: 100%;
+  display: flex;
+  overflow-y: auto;
+  flex-direction: column;
+  /*overflow-x:hidden;*/
+  /*overflow-y:auto;*/
 }
 
 #column-two {
@@ -151,11 +157,24 @@ nav {
   margin-top: 30px;
   margin-bottom: 7px;
   margin-left: 10px;
-
+  color: #000;
 }
 
 #first-search-text {
-  margin-top: 40px;
+  margin-top: 20px;
   margin-bottom: 7px;
   margin-left: 10px;
+  color: #000;
+}
+
+#map-info {
+  border-top: #e7e7e7 solid 1px;
+  color: #000;
+  margin-top: 40px;
+  padding-top: 12px;
+}
+
+#map-info-text {
+  margin-top: 5px;
+  margin-bottom: 30px;
 }
