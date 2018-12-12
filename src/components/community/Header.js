@@ -7,9 +7,9 @@ class Header extends React.Component {
       <div>
           <nav className="navbar is-light is-fixed-top has-shadow">
               <div className="navbar-brand">
-                  <a className="navbar-item">
+                  <Link to="/welcome" className="navbar-item">
                       <strong>Airbnb Insider</strong>
-                  </a>
+                  </Link>
                   <div className="navbar-burger burger" data-target="navbarExampleTransparentExample">
                       <span></span>
                       <span></span>

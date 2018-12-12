@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../../App.css';
 import "react-bulma-components/full";
 
@@ -13,9 +14,9 @@ class Footer extends React.Component {
       <footer>
           <nav className="navbar is-transparent is-dark is-fixed-bottom has-shadow">
               <div className="navbar-brand">
-                  <a className="navbar-item">
+                  <Link to="/welcome" className="navbar-item">
                       <strong>Airbnb Insider</strong>
-                  </a>
+                  </Link>
                   <div className="navbar-burger burger" data-target="navbarExampleTransparentExample">
                       <span></span>
                       <span></span>
