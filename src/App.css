@@ -64,8 +64,14 @@ nav {
   /*background-color: darksalmon;*/
   border-right: rgba(128, 128, 128, 0.22) 1px solid;
   padding-left: 40px;
-  padding-top: 100px;
+  padding-top: 80px;
   padding-right: 20px;
+  height: 100%;
+  display: flex;
+  overflow-y: auto;
+  flex-direction: column;
+  /*overflow-x:hidden;*/
+  /*overflow-y:auto;*/
 }
 
 #column-two {
@@ -170,4 +176,5 @@ nav {
 
 #map-info-text {
   margin-top: 5px;
+  margin-bottom: 30px;
 }
