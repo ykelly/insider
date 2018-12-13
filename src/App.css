@@ -58,6 +58,7 @@ nav {
 /*}*/
 
 
+
 #column-one {
   /*background: url("images/filter.png") center;*/
   /*background-size: cover;*/
@@ -177,4 +178,29 @@ nav {
 #map-info-text {
   margin-top: 5px;
   margin-bottom: 30px;
+}
+
+.modal {
+  opacity: 1;
+  transition: opacity 300ms ease-in-out;
+}
+
+#top-section {
+  margin-top: 78px;
+}
+
+#button-space {
+  margin-top: 20px;
+}
+
+#card-list {
+  margin-bottom: 50px;
+}
+
+#account {
+  margin-left: 20px;
+}
+
+.account-button {
+  font-size: 15px;
 }

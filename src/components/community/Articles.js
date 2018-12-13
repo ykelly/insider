@@ -4,7 +4,7 @@ import Article from './Article';
 class Articles extends React.Component {
   render() {
     return(
-      <div>
+      <div id="card-list">
         <ul>
           {
             this.props.articles.map((item) => {

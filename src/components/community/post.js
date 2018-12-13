@@ -46,7 +46,7 @@ class Post extends React.Component {
 
   render() {
     if (this.state.submitted === true) {
-      return <Redirect to = '/community' />
+      window.location.reload()
     }
 
     return(
