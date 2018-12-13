@@ -1,39 +1,44 @@
 import {fromJS} from 'immutable';
+import {Window as URL} from "mapbox-gl";
+
+
+const url = require('url');
+const myURL =
+    new URL("@mapbox://styles/rwang2/cjpj682np42vh2rr6zz04eddu");
+
+const MAP_STYLE = require(myURL);
+const stylesClient = MAP_STYLE({ accessToken: 'pk.eyJ1IjoicndhbmcyIiwiYSI6ImNqajJ3a21hbzExZ3EzcXBnc2puNTRudWkifQ.EtOfYQEh_v4rQ0q71LAqWQ'});
+var style = {};
+
+stylesClient
+    .getStyle({
+        styleId: 'Seattle - New'
+    })
+    .send()
+    .then(response => {
+        style = response.body;
+    });
 
 // Make a copy of the map style
-const mapStyle = {'mapbox://styles/rwang2/cjpj682np42vh2rr6zz04eddu'};
+const mapStyle = {...style,
+                  sources: {...MAP_STYLE.sources},
+                  layers: MAP_STYLE.layers.slice()
+                 };
 
-// Insert custom layers before city labels
+
 mapStyle.layers.splice(
-  mapStyle.layers.findIndex(layer => layer.id === 'place_label_city'), 0,
-  // Counties polygons
+  mapStyle.layers.findIndex(layer => layer.id === 'listing-num'), 1,
+
+  // Filtered listings
   {
-    id: 'counties',
-    interactive: true,
-    type: 'fill',
-    source: 'counties',
-    'source-layer': 'original',
-    paint: {
-      'fill-outline-color': 'rgba(0,0,0,0.1)',
-      'fill-color': 'rgba(0,0,0,0.1)'
-    }
-  },
-  // Highlighted county polygons
-  {
-    id: 'counties-highlighted',
-    type: 'fill',
-    source: 'counties',
-    'source-layer': 'original',
-    paint: {
-      'fill-outline-color': '#484896',
-      'fill-color': '#6e599f',
-      'fill-opacity': 0.75
-    },
-    filter: ['in', 'COUNTY', '']
+    id: 'listings-filtered',
+    type: 'circle',
+    'source-layer': 'listing-num',
+    filter: ['==', 'GUESTS', '']
   }
 );
 
-export const highlightLayerIndex =
-  mapStyle.layers.findIndex(layer => layer.id === 'counties-highlighted');
+export const filterLayerIndex =
+  mapStyle.layers.findIndex(layer => layer.id === 'listings-filtered');
 
 export const defaultMapStyle = mapStyle;

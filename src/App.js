@@ -8,9 +8,10 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import Header from './components/community/Header'
 import Footer from './components/community/Footer'
 import ControlPanel from './control-panel';
-// import {defaultMapStyle, filterLayerIndex} from './map-style.js';
+import {defaultMapStyle, filterLayerIndex} from './map-style.js';
 
 const TOKEN = 'pk.eyJ1IjoicndhbmcyIiwiYSI6ImNqajJ3a21hbzExZ3EzcXBnc2puNTRudWkifQ.EtOfYQEh_v4rQ0q71LAqWQ';
+const MAP_STYLE = 'mapbox://styles/rwang2/cjpj682np42vh2rr6zz04eddu';
 // const minLat = 47.45;
 // const maxLat = 47.75;
 // const minLong = -122.3;
@@ -30,8 +31,10 @@ class App extends Component {
         hoverInfo: null,
         settings: {
           minPrice: 0,
-          maxPrice: 210000,
-          zipcode: 98101
+          maxPrice: 5400,
+          zipcode: null,
+          numGuests: "Any",
+          listingType: null
         }
       }; // <- set up react state
       this._renderPopup = this._renderPopup.bind(this);
@@ -74,7 +77,8 @@ class App extends Component {
    return null;
  }
  _onSettingChange = (name, value) => this.setState({
-    settings: {...this.state.settings, [name]: value}
+    settings: {...this.state.settings, [name]: value},
+    mapStyle: defaultMapStyle.setIn(['layers', filterLayerIndex, 'filter', 2], this.state.settings.numGuests)
   });
 
   render() {
@@ -97,7 +101,7 @@ class App extends Component {
                                   onViewportChange={this._updateViewport}
                                   width="100vw"
                                   height="100vh"
-                                  mapStyle={'mapbox://styles/rwang2/cjpj682np42vh2rr6zz04eddu'}
+                                  mapStyle={MAP_STYLE}
                                   mapboxApiAccessToken={TOKEN}
                                   onClick = {this._onHover}
                                   >
