@@ -25,12 +25,13 @@ class App extends Component {
             longitude: -122.3299,
             zoom: 12.09,
             bearing: 0,
-            pitch: 30,
+            pitch: 30
         },
         hoverInfo: null,
         settings: {
           minPrice: 0,
           maxPrice: 210000,
+          zipcode: 98101
         }
       }; // <- set up react state
       this._renderPopup = this._renderPopup.bind(this);
@@ -72,6 +73,9 @@ class App extends Component {
    }
    return null;
  }
+ _onSettingChange = (name, value) => this.setState({
+    settings: {...this.state.settings, [name]: value}
+  });
 
   render() {
       const {viewport} = this.state;
@@ -82,9 +86,9 @@ class App extends Component {
               <div className="columns" id="columns">
                   <div className="column is-2" id="column-one">
                   <ControlPanel
-                    containerComponent={this.props.containerComponent}
-                    settings={this.state}
-                    onChange={this._onSettingChange}
+                  containerComponent={this.props.containerComponent}
+                  settings={this.state.settings}
+                  onChange={this._onSettingChange}
                     />
                   </div>
 
