@@ -18,7 +18,7 @@ class Article extends React.Component {
 
   render(){
     return (
-      <div>
+      <div class="column is-one-quarter">
           <div className="card">
               <div className="card-content">
                   <p className="title">

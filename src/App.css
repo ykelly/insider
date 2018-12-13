@@ -133,7 +133,7 @@ nav {
 
 .card {
   width: 300px;
-  margin-left: 300px;
+  margin-left: 10px;
 }
 
 #first-filter {
@@ -187,6 +187,13 @@ nav {
 
 #top-section {
   margin-top: 78px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+#bottom-section {
+  margin-top: 0px;
+  padding-top: 0px;
 }
 
 #button-space {
@@ -203,4 +210,9 @@ nav {
 
 .account-button {
   font-size: 15px;
+}
+
+#make-post {
+  margin-top: 40px;
+  margin-bottom: 0px;
 }

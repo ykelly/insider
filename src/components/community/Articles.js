@@ -5,15 +5,19 @@ class Articles extends React.Component {
   render() {
     return(
       <div id="card-list">
-        <ul>
-          {
-            this.props.articles.map((item) => {
-              return(
-                <Article item = {item}/>
-              )
-            })
-          }
-        </ul>
+        <section class="section cards">
+            <div className="container">
+                <div className="columns is-multiline">
+                        {
+                            this.props.articles.reverse().map((item) => {
+                                return(
+                                    <Article item = {item}/>
+                                )
+                            })
+                        }
+                </div>
+            </div>
+        </section>
       </div>
     );
   }

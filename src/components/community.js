@@ -85,12 +85,12 @@ class Community extends React.Component {
                   <div className="has-text-centered content">
                       <h1 className="title">The Insider Community</h1>
                       <hr />
-                      <AuthConsumer >
+                      <AuthConsumer>
                           {({ isAuth, login, logout }) => (
-                              <div>
+                              <div id="make-post">
                                   {isAuth ? (
                                 <span>
-                                  <a className="button is-primary" onClick={this.toggleModal}>
+                                  <a className="button is-link" onClick={this.toggleModal}>
                                     <span className="icon">
                                         <i className="fa fa-plus"></i>
                                     </span>
@@ -122,9 +122,8 @@ class Community extends React.Component {
               </div>
           </section>
 
-        <section className = "section">
+        <section className = "section" id="bottom-section">
            <Articles className = "container" articles = {this.state.articles} />
-
         </section>
 
         <Footer />
