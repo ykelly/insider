@@ -67,7 +67,9 @@ class Community extends React.Component {
           title: items[item].title,
           author: items[item].author,
           text: items[item].text,
-          date: items[item].date
+          date: items[item].date,
+          like: items[item].like,
+          dislike: items[item].dislike
         });
       }
       this.setState({
@@ -113,6 +115,7 @@ class Community extends React.Component {
                   </div>
 
                   <Modal
+                      id="modal"
                       closeModal={this.toggleModal}
                       modalState={this.state.modalState}
                       title="Post a new review"

@@ -14,7 +14,9 @@ class Post extends React.Component {
       author: "",
       text: "",
       date: "",
-      submitted: false
+      submitted: false,
+      like: "0",
+      dislike: "0"
     };
   }
 
@@ -31,7 +33,9 @@ class Post extends React.Component {
       title: this.state.title,
       author: this.state.author,
       text: this.state.text,
-      date: new Date().toLocaleString()
+      date: new Date().toLocaleString(),
+      like: this.state.like,
+      dislike: this.state.dislike
     }
 
     itemsRef.push(item);
@@ -40,6 +44,8 @@ class Post extends React.Component {
       author: '',
       text: '',
       date: '',
+      like: "0",
+      dislike: "0",
       submitted: true
     })
   }
@@ -51,7 +57,7 @@ class Post extends React.Component {
 
     return(
       <div className = "submission-form">
-        <form>
+        <form id="form">
 
             <div className="field is-horizontal">
                 <div className="field-label is-normal">
@@ -112,8 +118,8 @@ class Post extends React.Component {
 
             <div className="field-body">
                 <div className="field">
-                    <div className="control">
-                        <button className="button is-primary" onClick={(e) => this.onSubmit(e)}>
+                    <div className="control" id="submit-form-button">
+                        <button className="button is-link" onClick={(e) => this.onSubmit(e)}>
                             Submit
                         </button>
                     </div>
