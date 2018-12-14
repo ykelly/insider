@@ -265,10 +265,17 @@ nav {
   font-family: "Montserrat-Medium";
   src: url("./font/Montserrat-Medium.otf");
   font-size: 90px;
-  margin-bottom: 100px;
+  /*margin-bottom: 100px;*/
   margin-top: 350px;
   position: relative;
   z-index: auto;
+}
+
+#home-button-area {
+  position: relative;
+  z-index: auto;
+  margin-bottom: 80px;
+  margin-top: 10px;
 }
 
 #home-body {

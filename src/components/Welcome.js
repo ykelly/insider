@@ -19,11 +19,23 @@ class Welcome extends React.Component {
                   <source src={require("../video/airbnb.mp4")} type="video/mp4"/>
               </video>
 
+
             <Link to="/"><p className="title is-spaced has-text-white" id="home-title">
               Airbnb Insider
             </p></Link>
 
-            <div className="is-warning" id="mission-statement">
+              <div id="home-button-area" className="has-text-centered">
+                  <a href="/" className="button is-link is-inverted is-outlined is-rounded ">
+                    <span className="icon is-small is-left">
+                        <i className="fa fa-map"></i>
+                    </span>
+                    <span id="home-button">
+                      <p>Go to Map</p>
+                    </span>
+                  </a>
+              </div>
+
+              <div className="is-warning" id="mission-statement">
               <p className="title has-text-white">Our Mission</p>
               <p className="home-subtitle" id="mission">We want to provide the perfect experience for both the traveler and<br/>the Airbnb host by providing them with a reasonable price point.</p>
             </div>
@@ -76,7 +88,6 @@ class Welcome extends React.Component {
                   </div>
               </div>
             </div>
-            {/*<Link to="/" className="button is-rounded">Go to Visualization Map</Link>*/}
           </div>
         </div>
         <div class="hero-foot">
