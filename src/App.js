@@ -33,7 +33,7 @@ class App extends Component {
           minPrice: 0,
           maxPrice: 5400,
           zipcode: null,
-          numGuests: "Any",
+          numGuests: 'Any',
           listingType: null
         }
       }; // <- set up react state
