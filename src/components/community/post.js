@@ -91,7 +91,7 @@ class Post extends React.Component {
   render() {
       const { value, suggestions } = this.state;
       const inputProps = {
-          placeholder: 'Type a listing',
+          placeholder: 'Enter a listing',
           value,
           onChange: this.onChange
       };
