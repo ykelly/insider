@@ -76,14 +76,6 @@ nav {
   width: 500px;
 }
 
-/*#card-title {*/
-  /*font-size: 30px;*/
-/*}*/
-
-/*#card-author {*/
-  /*font-size: 20px;*/
-/*}*/
-
 #first-filter {
   width: 100%;
 }
@@ -187,14 +179,6 @@ nav {
   color: hsl(141, 71%, 48%);
 }
 
-
-
-
-
-
-
-
-
 .react-autosuggest__container {
   position: relative;
 }
@@ -255,8 +239,6 @@ nav {
 }
 
 .react-autosuggest__suggestions-list {
-  /*margin: 0;*/
-  /*padding: 0;*/
   list-style: none none !important;
 }
 
@@ -270,4 +252,102 @@ nav {
 
 .react-autosuggest__suggestion--highlighted {
   background-color: #ddd;
+}
+
+#home-title {
+  text-align: center;
+  font-family: "Montserrat-Medium";
+  src: url("./font/Montserrat-Medium.otf");
+  font-size: 90px;
+  margin-bottom: 100px;
+  margin-top: 350px;
+  position: relative;
+  z-index: auto;
+}
+
+#home-body {
+  margin-top: -300px;
+}
+
+#home-section {
+  background-color: #F9FAFC;
+  /*background-image: url('./images/sky.png');*/
+  /*-webkit-background-size: cover;*/
+  /*-moz-background-size: cover;*/
+  /*-o-background-size: cover;*/
+  /*background-size: cover;*/
+}
+
+.home-card {
+  width: 350px !important;
+  height: 300px;
+  display: inline-block;
+}
+
+.home-column {
+  width: 100%;
+  text-align: center;
+  z-index: auto;
+}
+
+.home-circle {
+  background: white;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: none;
+  position: absolute;
+  display: inline-block;
+  z-index: 1;
+  margin-top: -70px;
+  margin-left: 115px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#mission-statement {
+  margin-bottom: 130px !important;
+  text-align: center;
+  position: relative;
+  z-index: auto;
+  border-right: 1px white solid;
+  border-left: 1px white solid;
+  margin-left: 380px !important;
+  margin-right: 380px !important;
+}
+
+.home-card-content {
+  margin-top: 68px;
+}
+
+.home-subtitle {
+  color: #999999 !important;
+  margin-top: 20px !important;
+  font-size: 16px !important;
+  line-height: 28px !important;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#green-circle {
+  background-color: #35CC62;
+}
+
+.home-icon {
+  margin-top: 35px;
+}
+
+#mission {
+  line-height: 25px !important;
+  margin-top: -10px !important;
+  color: #ffffff !important;
+}
+
+#background-video{
+  height: 100vh;
+  width: 100vw;
+  float: left;
+  top: 0;
+  padding: 0;
+  left: 0;
+  position: fixed; /* optional depending on what you want to do in your app */
 }
