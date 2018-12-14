@@ -25,7 +25,7 @@ class Welcome extends React.Component {
             </p></Link>
 
               <div id="home-button-area" className="has-text-centered">
-                  <a href="/" className="button is-link is-inverted is-outlined is-rounded ">
+                  <a href="/" className="button is-info is-inverted is-outlined is-rounded ">
                     <span className="icon is-small is-left">
                         <i className="fa fa-map"></i>
                     </span>
