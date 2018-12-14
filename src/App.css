@@ -6,6 +6,11 @@ nav {
   margin-bottom: 0px;
 }
 
+#top-nav {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.06), 0 6px 20px 0 rgba(0, 0, 0, 0.04);
+
+}
+
 #column-one {
   border-right: rgba(128, 128, 128, 0.22) 1px solid;
   padding-left: 40px;
