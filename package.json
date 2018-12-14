@@ -12,6 +12,7 @@
     "mapbox-gl": "^0.51.0",
     "re-base": "^4.0.0",
     "react": "^16.6.3",
+    "react-autosuggest": "^9.4.2",
     "react-bulma-components": "^2.3.0",
     "react-dom": "^16.6.3",
     "react-map-gl": "^4.0.2",

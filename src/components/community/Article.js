@@ -3,8 +3,8 @@ import '.././../App.css';
 import 'font-awesome/css/font-awesome.min.css';
 import "react-bulma-components/full";
 import fire from "../fire";
-
-
+import Listings from '../../data/listings.json'
+import Redirect from "react-router-dom/es/Redirect";
 
 class Article extends React.Component {
   constructor(props) {
@@ -17,6 +17,15 @@ class Article extends React.Component {
       like: parseInt(""),
       dislike: parseInt(""),
     };
+  }
+
+  getLink = e => {
+      const listing = Listings.filter(lang =>
+          lang.descry === this.props.item.title
+      );
+      const link = listing[0].url
+
+      return window.location.href = link
   }
 
     like = (e) => {
@@ -41,14 +50,17 @@ class Article extends React.Component {
 
   render(){
     return (
-      <div class="column is-one-quarter">
-          <div className="card">
+      <div class="column is-4">
+          <div className="card" id="card">
               <div className="card-content">
-                  <p className="title">
-                      {this.props.item.text}
+                  <p className="title is-4" id="card-title">
+                      <a className="has-text-black" onClick={(e) => this.getLink(e)}>{this.props.item.title}</a>
                   </p>
-                  <p className="subtitle">
+                  <p className="subtitle is-6" id="card-author">
                       {this.props.item.author}
+                  </p>
+                  <p className="subtitle is-5">
+                      {this.props.item.text}
                   </p>
                   <p className="subtitle is-6">
                       {this.props.item.date}
