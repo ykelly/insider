@@ -397,7 +397,7 @@ nav {
 }
 
 #about-statement {
-  margin-bottom: 80px !important;
+  margin-bottom: 110px !important;
   text-align: center;
   position: relative;
   z-index: auto;
@@ -482,5 +482,5 @@ nav {
 }
 
 #about-page-alignment {
-  margin-top: -60px !important;
+  margin-top: -20px !important;
 }
