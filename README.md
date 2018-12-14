@@ -7,7 +7,6 @@ npm install --save react-router-dom
 npm install --save react-autosuggest
 npm install --save bulma
 npm install --save react-map-gl
-
 ```
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
