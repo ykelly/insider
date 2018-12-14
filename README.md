@@ -4,6 +4,7 @@
 ```
 npm install --save firebase
 npm install --save react-router-dom
+npm install --save react-autosuggest
 ```
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
