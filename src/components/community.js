@@ -82,53 +82,59 @@ class Community extends React.Component {
     return (
       <div>
         <Header/>
-          <section className="section" id="top-section">
-              <div className="container">
-                  <div className="has-text-centered content">
-                      <h1 className="title">The Insider Community</h1>
-                      <hr />
-                      <AuthConsumer>
-                          {({ isAuth, login, logout }) => (
-                              <div id="make-post">
-                                  {isAuth ? (
-                                <span>
-                                  <a className="button is-link" onClick={this.toggleModal}>
-                                    <span className="icon">
-                                        <i className="fa fa-plus"></i>
+          <div id="community-page">
+              <section className="section" id="top-section">
+                  <div className="container">
+                      <div className="has-text-centered content">
+                          <div id="community-icon">
+                              <img src={require("./../images/conversation.png")}
+                                   height="50px"
+                                   width="50px"/>
+                          </div>
+                          <h1 className="title has-text-black">The Insider Community</h1>
+                          <hr />
+                          <AuthConsumer>
+                              {({ isAuth, login, logout }) => (
+                                  <div id="make-post">
+                                      {isAuth ? (
+                                    <span>
+                                      <a className="button is-link" onClick={this.toggleModal}>
+                                        <span className="icon">
+                                            <i className="fa fa-plus"></i>
+                                        </span>
+                                          <span>Create Post</span>
+                                      </a>
                                     </span>
-                                      <span>Create Post</span>
-                                  </a>
-                                </span>
-                                ) : (
-                                <span>
-                                  <a className="button is-light" title="Disabled button" onClick={logout} disabled>
-                                    <span className="icon">
-                                        <i className="fa fa-sign-out"></i>
+                                    ) : (
+                                    <span>
+                                      <a className="button is-light" title="Disabled button" onClick={logout} disabled>
+                                        <span className="icon">
+                                            <i className="fa fa-sign-out"></i>
+                                        </span>
+                                          <span>Sign In to Make a Post</span>
+                                      </a>
                                     </span>
-                                      <span>Sign In to Make a Post</span>
-                                  </a>
-                                </span>
-                                )}
-                              </div>
-                        )}
-                      </AuthConsumer>
+                                    )}
+                                  </div>
+                            )}
+                          </AuthConsumer>
+                      </div>
+
+                      <Modal
+                          id="modal"
+                          closeModal={this.toggleModal}
+                          modalState={this.state.modalState}
+                          title="Post a new review"
+                      >
+                        <Post></Post>
+                      </Modal>
                   </div>
+              </section>
 
-                  <Modal
-                      id="modal"
-                      closeModal={this.toggleModal}
-                      modalState={this.state.modalState}
-                      title="Post a new review"
-                  >
-                    <Post></Post>
-                  </Modal>
-              </div>
-          </section>
-
-        <section className = "section" id="bottom-section">
-           <Articles className = "container" articles = {this.state.articles} />
-        </section>
-
+            <section className = "section" id="bottom-section">
+               <Articles className = "container" articles = {this.state.articles} />
+            </section>
+          </div>
         <Footer />
       </div>
     )

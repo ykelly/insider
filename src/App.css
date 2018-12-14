@@ -15,6 +15,7 @@ nav {
   display: flex;
   overflow-y: auto;
   flex-direction: column;
+  background-color: #F9FAFC;
 }
 
 #column-two {
@@ -126,7 +127,7 @@ nav {
 }
 
 #top-section {
-  margin-top: 78px;
+  padding-top: 125px;
   margin-bottom: 0px;
   padding-bottom: 0px;
 }
@@ -271,11 +272,6 @@ nav {
 
 #home-section {
   background-color: #F9FAFC;
-  /*background-image: url('./images/sky.png');*/
-  /*-webkit-background-size: cover;*/
-  /*-moz-background-size: cover;*/
-  /*-o-background-size: cover;*/
-  /*background-size: cover;*/
 }
 
 .home-card {
@@ -350,4 +346,18 @@ nav {
   padding: 0;
   left: 0;
   position: fixed; /* optional depending on what you want to do in your app */
+}
+
+#community-icon {
+  margin-bottom: -20px;
+}
+
+#community-page {
+  background-color: #F9FAFC;
+
+}
+
+#about-page {
+  background-color: #F9FAFC;
+
 }

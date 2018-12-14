@@ -5,13 +5,13 @@ import Footer from './community/Footer';
 class About extends React.Component {
   render() {
     return (
-      <section class="hero is-success is-fullheight">
+      <section class="hero is-fullheight">
         <div class="hero-head">
           <Header />
 
         </div>
 
-        <div className="hero-body">
+        <div className="hero-body" id="about-page">
           <div className="container">
             <section>
               <p className="title is-1">
