@@ -29,11 +29,11 @@ request.open('GET',MAP_STYLE,false);
 request.send(null);
 
 if(request.status === 200) {
-  console.log(request.responseText);
+  // console.log(request.responseText);
 }
 
 style=JSON.parse(request.responseText);
-console.log(style);
+// console.log(style);
 const mapStyle = {...style,
                   sources: {...style.sources},
                   layers: style.layers.slice()
@@ -55,4 +55,4 @@ mapStyle.layers.splice(
 export const filterLayerIndex =
   mapStyle.layers.findIndex(layer => layer.id === 'listings-filtered');
 
-export const defaultMapStyle = mapStyle;
+export const defaultMapStyle = fromJS(mapStyle);

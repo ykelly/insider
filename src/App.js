@@ -21,6 +21,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+        mapStyle: defaultMapStyle,
         viewport: {
             latitude: 47.6049,
             longitude: -122.3299,
@@ -32,8 +33,8 @@ class App extends Component {
         settings: {
           minPrice: 0,
           maxPrice: 5400,
-          zipcode: null,
-          numGuests: 'Any',
+          zipcode: 55105,
+          numGuests: 1,
           listingType: null
         }
       }; // <- set up react state
@@ -76,10 +77,15 @@ class App extends Component {
    }
    return null;
  }
- _onSettingChange = (name, value) => this.setState({
-    settings: {...this.state.settings, [name]: value},
-    mapStyle: defaultMapStyle.setIn(['layers', filterLayerIndex, 'filter', 2], this.state.settings.numGuests)
-  });
+ _onSettingChange = (name, value) => {
+
+   this.setState({
+      settings: {...this.state.settings, [name]: value},
+      mapStyle: defaultMapStyle.setIn(['layers', filterLayerIndex, 'filter', 2], this.state.settings.numGuests)
+    });
+    console.log("that is: ",this.state.settings.numGuests);
+    console.log("this is: ",defaultMapStyle.getIn(['layers', filterLayerIndex]));
+ }
 
   render() {
       const {viewport} = this.state;
