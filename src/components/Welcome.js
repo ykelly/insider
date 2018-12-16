@@ -37,7 +37,7 @@ class Welcome extends React.Component {
 
               <div className="is-warning" id="mission-statement">
               <p className="title has-text-white">Our Mission</p>
-              <p className="home-subtitle" id="mission">We want to enhance the travel experience for both users and<br/>Airbnb hosts by providing them with a price comparison.</p>
+              <p className="home-subtitle" id="mission">We want to enhance the travel experience for the both users and<br/>Airbnb hosts by providing them with a price comparison.</p>
             </div>
 
             <div className="columns is-desktop home-columns">
@@ -51,7 +51,7 @@ class Welcome extends React.Component {
                               <a className="has-text-black">User</a>
                           </p>
                           <p className="subtitle home-subtitle">
-                              Users want the best place to stay for the most value.
+                              Users want a home host with the highest value at the lowest price point for the best travel experience.
                           </p>
                       </div>
                   </div>

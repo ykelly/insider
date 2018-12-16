@@ -22,7 +22,7 @@ class About extends React.Component {
 
               <div className="is-warning" id="about-statement">
                   <p className="title has-text-black">Outstanding Team</p>
-                  <p className="about-subtitle" id="about">We want to enhance the travel experience for both users and<br/>Airbnb hosts by providing them with a price comparison.</p>
+                  <p className="about-subtitle" id="about">We want to enhance the travel experience for both the users and<br/>Airbnb hosts by providing them with a price comparison.</p>
               </div>
 
             <div className="columns is-desktop">

@@ -292,7 +292,7 @@ nav {
 
 .home-card {
   width: 350px !important;
-  height: 300px;
+  height: 280px;
   display: inline-block;
 }
 
@@ -380,7 +380,7 @@ nav {
 }
 
 .about-circle-4 {
-  background-image: url("././images/katya.jpg");
+  background-image: url("././images/katya.jpeg");
   -webkit-background-size: cover;
   background-position: center;
   -moz-background-size: cover;
