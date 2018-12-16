@@ -22,7 +22,7 @@ class About extends React.Component {
 
               <div className="is-warning" id="about-statement">
                   <p className="title has-text-black">Outstanding Team</p>
-                  <p className="about-subtitle" id="about">We want to provide the perfect experience for both the traveler and<br/>the Airbnb host by providing them with a reasonable price point.</p>
+                  <p className="about-subtitle" id="about">We want to enhance the travel experience for both users and<br/>Airbnb hosts by providing them with a price comparison.</p>
               </div>
 
             <div className="columns is-desktop">
@@ -74,7 +74,7 @@ class About extends React.Component {
                               Back-end Developer
                           </p>
                           <p className="has-text-success is-size-7">
-                              Macalester College '18
+                              Macalester College '20
                           </p>
                       </div>
                   </div>
@@ -92,7 +92,7 @@ class About extends React.Component {
                               Database Manager
                           </p>
                           <p className="has-text-success is-size-7">
-                              Macalester College '20
+                              Macalester College '19
                           </p>
                       </div>
                   </div>

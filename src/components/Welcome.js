@@ -37,7 +37,7 @@ class Welcome extends React.Component {
 
               <div className="is-warning" id="mission-statement">
               <p className="title has-text-white">Our Mission</p>
-              <p className="home-subtitle" id="mission">We want to provide the perfect experience for both the traveler and<br/>the Airbnb host by providing them with a reasonable price point.</p>
+              <p className="home-subtitle" id="mission">We want to enhance the travel experience for both users and<br/>Airbnb hosts by providing them with a price comparison.</p>
             </div>
 
             <div className="columns is-desktop home-columns">
@@ -51,7 +51,7 @@ class Welcome extends React.Component {
                               <a className="has-text-black">User</a>
                           </p>
                           <p className="subtitle home-subtitle">
-                              Users look for a home with aspernatur aut odit fugit, consequuntur magni dolores anescriunts.
+                              Users want the best place to stay for the most value.
                           </p>
                       </div>
                   </div>
@@ -67,7 +67,7 @@ class Welcome extends React.Component {
                               <a className="has-text-black">Home Value</a>
                           </p>
                           <p className="subtitle home-subtitle">
-                              We find the middle ground for both the traveler and host in order voluptears aspernatur aut odit fugit, consequuntur magni dolores.                          </p>
+                              We find the middle ground for both the traveler and host in order to meet the needs of both parties.</p>
                       </div>
                   </div>
               </div>
@@ -82,8 +82,7 @@ class Welcome extends React.Component {
                               <a className="has-text-black">Host</a>
                           </p>
                           <p className="subtitle home-subtitle">
-                              Hosts want to set a reasonable price for their homes so that Nemo
-                              enim ipsam voluptatem voluptears aspernatur aut odit fugit.                          </p>
+                              Hosts want to set a reasonable price for their homes so that their listings are attractive to users.</p>
                       </div>
                   </div>
               </div>
