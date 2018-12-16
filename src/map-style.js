@@ -33,7 +33,7 @@ if(request.status === 200) {
 }
 
 style=JSON.parse(request.responseText);
-// console.log(style);
+console.log("the style file:",style);
 const mapStyle = {...style,
                   sources: {...style.sources},
                   layers: style.layers.slice()
@@ -48,7 +48,7 @@ mapStyle.layers.splice(
     id: 'listings-filtered',
     type: 'circle',
     'source-layer': 'listing-num',
-    filter: ['==', 'GUESTS', '']
+    filter: ['==', 'GUESTS', '1']
   }
 );
 

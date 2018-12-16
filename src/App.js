@@ -9,6 +9,7 @@ import Header from './components/community/Header'
 import Footer from './components/community/Footer'
 import ControlPanel from './control-panel';
 import {defaultMapStyle, filterLayerIndex} from './map-style.js';
+import {fromJS} from 'immutable';
 
 const TOKEN = 'pk.eyJ1IjoicndhbmcyIiwiYSI6ImNqajJ3a21hbzExZ3EzcXBnc2puNTRudWkifQ.EtOfYQEh_v4rQ0q71LAqWQ';
 const MAP_STYLE = 'mapbox://styles/rwang2/cjpj682np42vh2rr6zz04eddu';
@@ -83,8 +84,9 @@ class App extends Component {
       settings: {...this.state.settings, [name]: value},
       mapStyle: defaultMapStyle.setIn(['layers', filterLayerIndex, 'filter', 2], this.state.settings.numGuests)
     });
-    console.log("that is: ",this.state.settings.numGuests);
-    console.log("this is: ",defaultMapStyle.getIn(['layers', filterLayerIndex]));
+    console.log("the setting state for guest: ",this.state.settings.numGuests);
+    console.log("the defaultMapStyle: ",defaultMapStyle.toJS());
+    console.log("filterLayerIndex:",filterLayerIndex);
  }
 
   render() {
