@@ -46,11 +46,10 @@ export default class ControlPanel extends PureComponent {
 
     return (
       <Container>
-        <hr />
+        {/*<hr />*/}
 
-        { Object.keys(settings).map(name => this._renderSetting(name, settings[name])) }
+        {/*{ Object.keys(settings).map(name => this._renderSetting(name, settings[name])) }*/}
 
-        {/*
           <div id="search">
               <p className="is-size-2 is-uppercase has-text-weight-bold">Search</p>
           </div>
@@ -71,14 +70,14 @@ export default class ControlPanel extends PureComponent {
           <div id="search-text">
               <p className="is-size-6 has-text-weight-bold">Zip Code</p>
           </div>
-        // <div className="field" id="zipcode">
-        //     <p className="control has-icons-left has-icons-right">
-        //         <input className="input" type="text" placeholder="Enter zip code"/>
-        //         <span className="icon is-small is-left">
-        //             <i className="fa fa-map-pin"></i>
-        //         </span>
-        //     </p>
-        // </div>
+         <div className="field" id="zipcode">
+             <p className="control has-icons-left has-icons-right">
+                 <input className="input" type="text" placeholder="Enter zip code"/>
+                 <span className="icon is-small is-left">
+                     <i className="fa fa-map-pin"></i>
+                 </span>
+             </p>
+         </div>
         <div id="search-text">
             <p className="is-size-6 has-text-weight-bold">Price Range</p>
         </div>
@@ -146,7 +145,6 @@ export default class ControlPanel extends PureComponent {
             </p>
         </div>
 
-        */}
 
         <hr />
 
