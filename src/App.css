@@ -262,8 +262,8 @@ nav {
 
 #home-title {
   text-align: center;
-  font-family: "Montserrat-Medium";
-  src: url("./font/Montserrat-Medium.otf");
+  @font-family: MyFont;
+  src: url(./font/Montserrat-Medium.otf);
   font-size: 90px;
   /*margin-bottom: 100px;*/
   margin-top: 350px;
