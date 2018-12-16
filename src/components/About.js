@@ -89,7 +89,7 @@ class About extends React.Component {
                               <a className="has-text-black">Katya Kelly</a>
                           </p>
                           <p className="subtitle about-subtitle">
-                              Database Manager
+                              Data Scientist
                           </p>
                           <p className="has-text-success is-size-7">
                               Macalester College '19
