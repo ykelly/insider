@@ -495,3 +495,11 @@ nav {
 #about-page-alignment {
   margin-top: -20px !important;
 }
+
+.legend div span {
+    border-radius: 50%;
+    display: inline-block;
+    height: 10px;
+    margin-right: 5px;
+    width: 10px;
+}

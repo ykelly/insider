@@ -1,7 +1,40 @@
 import React, {PureComponent} from 'react';
+import './App.css';
 
 const camelPattern = /(^|[A-Z])[a-z]*/g;
 const defaultContainer =  ({children}) => <div className="control-panel">{children}</div>;
+
+const nbhdStyle1 = {
+    'background-color': '#478906'
+};
+const nbhdStyle2 = {
+    'background-color': '#70A43B'
+};
+const nbhdStyle3 = {
+    'background-color': '#9FC479'
+};
+const nbhdStyle4 = {
+    'background-color': '#C7DEAD'
+};
+const nbhdStyle5 = {
+    'background-color': '#DBEBC7'
+};
+
+const listingStyle1 = {
+    'background-color': '#FA9005'
+};
+const listingStyle2 = {
+    'background-color': '#F79F2B'
+};
+const listingStyle3 = {
+    'background-color': '#F2BD6F'
+};
+const listingStyle4 = {
+    'background-color': '#F7D09F'
+};
+const listingStyle5 = {
+    'background-color': '#F5E3CE'
+};
 
 export default class ControlPanel extends PureComponent {
 
@@ -133,15 +166,22 @@ export default class ControlPanel extends PureComponent {
         <div id="map-info">
             <p className="is-size-6 has-text-weight-bold">Map Legend</p>
             <p className="is-size-6 has-text-grey" id="map-info-text">
-                Only showing listings for Seattle.
-                Only showing listings for Seattle.
-                Only showing listings for Seattle.
-                Only showing listings for Seattle.
-                Only showing listings for Seattle.
-                Only showing listings for Seattle.
-                Only showing listings for Seattle.
-                Only showing listings for Seattle.
-                Only showing listings for Seattle.
+                <div id = "nbhd_legend" class = "legend">
+                    <h4>Median Home Value</h4>
+                    <div><span style={nbhdStyle1}></span>$2,100,000</div>
+                    <div><span style={nbhdStyle2}></span>$1,700,000</div>
+                    <div><span style={nbhdStyle3}></span>$1,000,000</div>
+                    <div><span style={nbhdStyle4}></span>$550,000</div>
+                    <div><span style={nbhdStyle5}></span>$314,522</div>
+                </div><br></br>
+                <div id = "listings_legend" className = "legend">
+                    <h4>Listing Price per Night</h4>
+                    <div><span style={listingStyle1}></span>$5400</div>
+                    <div><span style={listingStyle2}></span>$550</div>
+                    <div><span style={listingStyle3}></span>$180</div>
+                    <div><span style={listingStyle4}></span>$100</div>
+                    <div><span style={listingStyle5}></span>$10</div>
+                </div>
             </p>
         </div>
 
