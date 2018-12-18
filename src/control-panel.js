@@ -42,36 +42,36 @@ export default class ControlPanel extends PureComponent {
     return name.match(camelPattern).join(' ');
   }
 
-  _renderCheckbox(name, value) {
-    return (
-      <div key={name} className="input">
-        <label>{this._formatSettingName(name)}</label>
-        <input type="checkbox" checked={value}
-          onChange={evt => this.props.onChange(name, evt.target.checked)} />
-      </div>
-    );
-  }
+  // _renderCheckbox(name, value) {
+  //   return (
+  //     <div key={name} className="input">
+  //       <label>{this._formatSettingName(name)}</label>
+  //       <input type="checkbox" checked={value}
+  //         onChange={evt => this.props.onChange(name, evt.target.checked)} />
+  //     </div>
+  //   );
+  // }
 
-  _renderNumericInput(name, value) {
-    return (
-      <div key={name} className="input">
-        <label>{this._formatSettingName(name)}</label>
-        <input type="number" value={value}
-          onChange={evt => this.props.onChange(name, Number(evt.target.value))} />
-      </div>
-    );
-  }
+  // _renderNumericInput(name, value) {
+  //   return (
+  //     <div key={name} className="input">
+  //       <label>{this._formatSettingName(name)}</label>
+  //       <input type="number" value={value}
+  //         onChange={evt => this.props.onChange(name, Number(evt.target.value))} />
+  //     </div>
+  //   );
+  // }
 
-  _renderSetting(name, value) {
-    switch (typeof value) {
-    case 'boolean':
-      return this._renderCheckbox(name, value);
-    case 'number':
-      return this._renderNumericInput(name, value);
-    default:
-      return null;
-    }
-  }
+  // _renderSetting(name, value) {
+  //   switch (typeof value) {
+  //   case 'boolean':
+  //     return this._renderCheckbox(name, value);
+  //   case 'number':
+  //     return this._renderNumericInput(name, value);
+  //   default:
+  //     return null;
+  //   }
+  // }
 
   render() {
     const Container = this.props.containerComponent || defaultContainer;
