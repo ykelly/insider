@@ -2,44 +2,91 @@ import React from 'react';
 import Header from './community/Header';
 import Footer from './community/Footer';
 import { Link } from 'react-router-dom';
+import './../App.css';
+
 
 class Welcome extends React.Component {
   render() {
     return (
-      <section class="hero is-success is-fullheight">
+      <section class="hero is-fullheight" id="home-section">
         <div class="hero-head">
           <Header />
         </div>
 
-        <div className="hero-body">
+        <div className="hero-body" id="home-body">
           <div className="container">
-            <Link to="/"><p className="title is-1 is-spaced">
+              <video id="background-video" loop autoPlay muted>
+                  <source src={require("../video/airbnb.mp4")} type="video/mp4"/>
+              </video>
+
+
+            <Link to="/"><p className="title is-spaced has-text-white" id="home-title">
               Airbnb Insider
             </p></Link>
-            <br/>
 
-            <div className="columns is-desktop">
-
-
-              <div class="column">
-                <p className="subtitle">
-                  As a (budget-oriented) traveler, I want to pay the lowest Airbnb rental price for the best possible location so that I can make the most of my vacation on a budget.
-                </p>
-              </div>
-              <div class="column">
-                <p className="subtitle">
-                  As a (location-oriented) traveler, I want to compare housing prices to the Airbnb rental price for my chosen location so that I can make sure I am getting my money’s worth.
-                </p>
+              <div id="home-button-area" className="has-text-centered">
+                  <a href="/" className="button is-info is-inverted is-outlined is-rounded ">
+                    <span className="icon is-small is-left">
+                        <i className="fa fa-map"></i>
+                    </span>
+                    <span id="home-button">
+                      <p>Go to Map</p>
+                    </span>
+                  </a>
               </div>
 
-              <div class="column">
-                <p className="subtitle">
-                  As an Airbnb host, I want to set a price based on the value of my property so that I can maintain an attractive, popular Airbnb listing for the most value.
-                </p>
-              </div>
+              <div className="is-warning" id="mission-statement">
+              <p className="title has-text-white">Our Mission</p>
+              <p className="home-subtitle" id="mission">We want to enhance the travel experience for the both users and<br/>Airbnb hosts by providing them with a price comparison.</p>
             </div>
 
-            <Link to="/" className="button is-rounded">Go to Visualization Map</Link>
+            <div className="columns is-desktop home-columns">
+              <div class="column home-column">
+                  <div className="home-circle">
+                    <img className="home-icon" src={require("../images/trekking.png")} width="50px" height="50px"/>
+                  </div>
+                  <div className="card home-card">
+                    <div className="card-content home-card-content">
+                          <p className="title is-5">
+                              <a className="has-text-black">User</a>
+                          </p>
+                          <p className="subtitle home-subtitle">
+                              Users want a home host with the highest value at the lowest price point for the best travel experience.
+                          </p>
+                      </div>
+                  </div>
+              </div>
+              <div class="column home-column home-columns">
+                <div className="home-circle" id="green-circle">
+                    <img className="home-icon" src={require("../images/money.png")} width="50px" height="50px"/>
+
+                </div>
+                <div className="card home-card">
+                      <div className="card-content home-card-content">
+                          <p className="title is-5">
+                              <a className="has-text-black">Home Value</a>
+                          </p>
+                          <p className="subtitle home-subtitle">
+                              We find the middle ground for both the traveler and host in order to meet the needs of both parties.</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="column home-column home-columns">
+                <div className="home-circle">
+                    <img className="home-icon" src={require("../images/resort.png")} width="50px" height="50px"/>
+
+                </div>
+                <div className="card home-card">
+                      <div className="card-content home-card-content">
+                          <p className="title is-5">
+                              <a className="has-text-black">Host</a>
+                          </p>
+                          <p className="subtitle home-subtitle">
+                              Hosts want to set a reasonable price for their homes so that their listings are attractive to users.</p>
+                      </div>
+                  </div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="hero-foot">

@@ -12,7 +12,7 @@ class Footer extends React.Component {
   render() {
     return (
       <footer>
-          <nav className="navbar is-transparent is-dark is-fixed-bottom has-shadow">
+          <nav className="navbar is-transparent is-dark is-fixed-bottom">
               <div className="navbar-brand">
                   <Link to="/welcome" className="navbar-item">
                       <strong>&copy; Rock, Katya, Ruotong, Daniel {new Date().getFullYear()}</strong>
