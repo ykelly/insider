@@ -4,26 +4,6 @@ import React from 'react';
 const MAP_STYLE = "https://api.mapbox.com/styles/v1/mapbox/streets-v10?access_token=pk.eyJ1IjoicndhbmcyIiwiYSI6ImNqajJ3a21hbzExZ3EzcXBnc2puNTRudWkifQ.EtOfYQEh_v4rQ0q71LAqWQ";
 var style = [];
 
-// async function fetchData(url) {
-//   const res = await fetch(url);
-//   const data = await res.json();
-//   return data;
-// }
-//
-// fetchData(MAP_STYLE)
-//   .then(data => {
-//     console.log(data);
-//     style = data;
-//     console.log(style)
-//   })
-//
-// console.log(style);
-// fetch(MAP_STYLE)
-//       .then((response) => response.json())
-//       .then((responseJson) => {
-//
-//
-//       });
 var request = new XMLHttpRequest();
 request.open('GET',MAP_STYLE,false);
 request.send(null);

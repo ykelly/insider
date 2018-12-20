@@ -32,11 +32,13 @@ class App extends Component {
         },
         hoverInfo: null,
         settings: {
+          neighborhood: '',
           minPrice: 0,
           maxPrice: 5400,
+          listingType: null,
           zipcode: 55105,
           numGuests: 1,
-          listingType: null
+
         }
       }; // <- set up react state
       this._renderPopup = this._renderPopup.bind(this);
