@@ -1,39 +1,38 @@
 import {fromJS} from 'immutable';
+import React from 'react';
 
-// Make a copy of the map style
-const mapStyle = {'mapbox://styles/rwang2/cjpj682np42vh2rr6zz04eddu'};
+const MAP_STYLE = "https://api.mapbox.com/styles/v1/mapbox/streets-v10?access_token=pk.eyJ1IjoicndhbmcyIiwiYSI6ImNqajJ3a21hbzExZ3EzcXBnc2puNTRudWkifQ.EtOfYQEh_v4rQ0q71LAqWQ";
+var style = [];
 
-// Insert custom layers before city labels
+var request = new XMLHttpRequest();
+request.open('GET',MAP_STYLE,false);
+request.send(null);
+
+if(request.status === 200) {
+  // console.log(request.responseText);
+}
+
+style=JSON.parse(request.responseText);
+console.log("the style file:",style);
+const mapStyle = {...style,
+                  sources: {...style.sources},
+                  layers: style.layers.slice()
+                 };
+
+
 mapStyle.layers.splice(
-  mapStyle.layers.findIndex(layer => layer.id === 'place_label_city'), 0,
-  // Counties polygons
+  mapStyle.layers.findIndex(layer => layer.id === 'listing-num'), 1,
+
+  // Filtered listings
   {
-    id: 'counties',
-    interactive: true,
-    type: 'fill',
-    source: 'counties',
-    'source-layer': 'original',
-    paint: {
-      'fill-outline-color': 'rgba(0,0,0,0.1)',
-      'fill-color': 'rgba(0,0,0,0.1)'
-    }
-  },
-  // Highlighted county polygons
-  {
-    id: 'counties-highlighted',
-    type: 'fill',
-    source: 'counties',
-    'source-layer': 'original',
-    paint: {
-      'fill-outline-color': '#484896',
-      'fill-color': '#6e599f',
-      'fill-opacity': 0.75
-    },
-    filter: ['in', 'COUNTY', '']
+    id: 'listings-filtered',
+    type: 'circle',
+    'source-layer': 'listing-num',
+    filter: ['==', 'GUESTS', '1']
   }
 );
 
-export const highlightLayerIndex =
-  mapStyle.layers.findIndex(layer => layer.id === 'counties-highlighted');
+export const filterLayerIndex =
+  mapStyle.layers.findIndex(layer => layer.id === 'listings-filtered');
 
-export const defaultMapStyle = mapStyle;
+export const defaultMapStyle = fromJS(mapStyle);
