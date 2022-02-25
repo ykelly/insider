@@ -1,3 +1,6 @@
+## Dependencies
+
+Go to [Airbnb Insider Keynote](https://docs.google.com/presentation/d/1AX55rZ7iqMRmHaKcGKgTx_ZS_L7zygJQATvqGu9oQf0/edit#slide=id.g4a80095a1d_0_50).
 
 ## Dependencies
 
